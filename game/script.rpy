@@ -16,6 +16,8 @@ define m = Character("MC")
 
 label start:
 
+    # Scene 1 - Confession
+
     scene bg lake
 
     show Crush
@@ -74,6 +76,17 @@ label start:
     c "Yeah, no, I'm sorry, I'm just not interested in you."
 
     m "..."
+
+    m "(Ack! I felt as if something punched the soul out of my body and I'm left speechless from the shock.)"
+
+    "The girl in the pink dress looks uncomfortable while looking away. 
+    I don't know how long I was quiet for but this sure made it awkward for the both of us."
+
+    "...I gotta say something."
+
+    m "O-oh okay, y-yeah, it's no problem. Thanks for your time coming here..."
+
+    c "Yeah, thanks for telling me. But hey, no worries, I'm sure there are plenty of fish in the sea! Oh, no pun intended."
 
 
     # This ends the game.
