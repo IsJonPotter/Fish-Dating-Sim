@@ -88,7 +88,6 @@ label start:
 
     c "Yeah, thanks for telling me. But hey, no worries, I'm sure there are plenty of fish in the sea! Oh, no pun intended."
 
-
     # This ends the game.
 
     return
