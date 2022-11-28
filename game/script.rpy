@@ -7,11 +7,21 @@ image Crush:
 image Isaac:
     "Isaac.png"
 
+image Clamantha:
+    "Clamantha.png"
+
+image Dr Shrump:
+    "DrShrimp.png"
+
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 define c = Character("Crush")
 define m = Character("MC")
+define cl = Character("Clamantha")
+define di = Character("Dr Shrimp")
+define d = Character("Dr Shrump")
+define who = Character("???")
 
 
 # The game starts here.
@@ -94,11 +104,11 @@ label start:
 
     scene bg black
 
-    "‘BAM!’"
+    "'BAM!'"
 
     "(Huh?)"
 
-    "(I’m somehow flying up in the air away from her?)"
+    "(I'm somehow flying up in the air away from her?)"
     "Next thing I notice, she has her hands covering her mouth with her eyes wide open for some reason. I looked in another direction and finally realized I got hit by that truck. "
 
     "And then I plunge into the Lake Well."
@@ -109,7 +119,7 @@ label start:
 
     "…"
 
-    "(My body can’t move.)"
+    "(My body can't move.)"
 
     "(Is it from the hit?)"
 
@@ -117,9 +127,9 @@ label start:
 
     "…"
 
-    "(Wow, it’s kind of pretty peaceful here.)"
+    "(Wow, it's kind of pretty peaceful here.)"
 
-    "(I do recall that Lake Well can grant you a wish if you did something but I don’t remember what.) "
+    "(I do recall that Lake Well can grant you a wish if you did something but I don't remember what.) "
 
     scene bg sea light
 
@@ -131,6 +141,51 @@ label start:
 
     "(My mind is starting to fade and I let my eyes closed to sleep.)"
 
+    # Scene 2 - The Infirmary
+
+    m "(Hm? Where am I?)"
+
+    "I slowly start to open my eyes and find myself at some kind of weird infirmary."
+
+    who "OMG you woke up!" 
+
+    m "(Huh?)"
+
+    m "(Is that...)"
+
+    show Clamantha:
+        xalign 0.5
+        yalign 0.5
+
+    m "(A clam?)"
+
+    who "Don't try to move too much! Let me call the Doctor."
+
+    m "(The Clam talks?)"
+
+    "The Clam goes to call the doctor."
+
+    who "Here they are Doctor Shrimp, they just woke up after being crushed by a USO (Unknown Surface Object)."
+
+    show Clamantha:
+        xalign 0.25
+
+    show Dr Shrump:
+        xalign 0.75
+
+    di "Thank you Clamantha for calling me right up. How are you feeling? Do you have any headache? Physical pain?"
+
+    m "No… I don't feel anything weird (which is in fact weirder, why am I in a fish body?)"
+
+    "Dr.Shrimp checks my vitals."
+
+    di "You seem to be fine, come visit me if you experience any sort of pain. You are free to go."
+
+    cl "Oh thank you so much Dr.Shrimp!"
+
+    d "It's actually Dr. Shrump"
+
+    "I was getting up from the bed when suddenly someone crashed into the room."
 
     # This ends the game.
 
