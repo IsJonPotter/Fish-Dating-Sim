@@ -18,18 +18,28 @@ define config.name = _("Plenty O Fish")
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = ""
 
 
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""
+define gui.about = _p("""Programming: Storm, Gaia
+
+Sprites: Gaia, Rin
+
+Backgrounds: Muhamad
+
+UI: Muhamad, Gaia
+
+Writing: Goose, Rin, Muhamad, Gaia, Storm
+
+Music: Ky
 """)
 
 
@@ -120,7 +130,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 40
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
