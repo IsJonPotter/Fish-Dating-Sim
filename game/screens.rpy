@@ -249,14 +249,15 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
+            #textbutton _("Back") action Rollback()
+            #textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
+            #textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Load") action ShowMenu('load')
+            #textbutton _("Q.Save") action QuickSave()
+            #textbutton _("Q.Load") action QuickLoad()
+            #textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -292,7 +293,7 @@ screen navigation():
 
         xpos gui.navigation_xpos
         if main_menu:
-            xpos 400
+            xpos 200
         yalign 0.5
 
         spacing gui.navigation_spacing
@@ -302,27 +303,32 @@ screen navigation():
             imagebutton:
                 auto "gui/button/start_%s.png"
                 action Start()
+
+        else:
             imagebutton:
                 auto "gui/button/save_%s.png"
                 action ShowMenu("save")
+
+        imagebutton:
+            auto "gui/button/load_%s.png"
+            action ShowMenu("load")
+        imagebutton:
+            auto "gui/button/credits_%s.png"
+            action ShowMenu("about")
+
+        if _in_replay:
+
+            textbutton _("End Replay") action EndReplay(confirm=True)
+
+        elif not main_menu:
             imagebutton:
-                auto "gui/button/load_%s.png"
-                action ShowMenu("load")
+                auto "gui/button/mainmenu_%s.png"
+                action MainMenu()
+
+        if renpy.variant("pc"):
             imagebutton:
-                auto "gui/button/credits_%s.png"
-                action ShowMenu("about")
-
-            if _in_replay:
-
-                textbutton _("End Replay") action EndReplay(confirm=True)
-
-            elif not main_menu:
-                textbutton _("Main Menu") action MainMenu()
-
-            if renpy.variant("pc"):
-                imagebutton:
-                    auto "gui/button/quit_%s.png"
-                    action Quit(confirm=not main_menu)
+                auto "gui/button/quit_%s.png"
+                action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -463,9 +469,9 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     use navigation
 
-    textbutton _("Return"):
+    imagebutton:
+        auto "gui/button/return_%s.png"
         style "return_button"
-
         action Return()
 
     label title
