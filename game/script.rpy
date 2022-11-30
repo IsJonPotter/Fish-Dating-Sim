@@ -25,8 +25,8 @@ image Kole:
 image Blobby:
     "Blobby_HAPPY.png"
 
-int kolePoints = 0;
-int isaacPoints = 0;
+$ kolePoints = 0;
+$ isaacPoints = 0;
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -43,7 +43,7 @@ define k = Character("Kole")
 define bd = Character("Blind date")
 define j = Character("Jawshua")
 define b = Character("Blobby")
-define an = character("Announcer")
+define an = Character("Announcer")
 define cr = Character("Crowd")
 
 # The game starts here.
@@ -321,7 +321,7 @@ label start:
 
     show Kole
 
-    who :"Are you for real?"
+    who "Are you for real?"
 
     m "N-no, I'm so sorry! I'll get up now!"
 
@@ -620,11 +620,11 @@ label start:
 
     menu:
         "Stay in and avoid making eye contact longer":
-            isaacPoints+=1
+            $ isaacPoints += 1
             jump isaac_1
 
         "Help the whitefish":
-            kolePoints+=1
+            $ kolePoints += 1
             jump kole_1
 
 
@@ -704,11 +704,11 @@ label start:
 
         menu:
             "This is useless, I am just talking to a fever dream Axolotl.":
-                isaacPoints -= 1
+                $ isaacPoints -= 1
                 jump isaac_1_fever
             
             "This guy wants a human only secret? Fair enough.":
-                isaacPoints += 1
+                $ isaacPoints += 1
                 jump isaac_1_secret
         
         # -----------choice 1/2 —<isaacpoint -1> (This is useless, I am just talking to a fever dream Axolotl.)
@@ -878,11 +878,11 @@ label start:
 
         menu:
             "Apologize":
-                kolePoints += 1
+                $ kolePoints += 1
                 jump kole_1_sorry
 
             "Stay awkwardly silent":
-                kolePoints += 1
+                $ kolePoints += 1
                 jump kole_1_silent
 
     #------------choice 1/2 <Kolepoint +1> I apologize. 
@@ -917,7 +917,7 @@ label start:
             jump end_choice_1
 
     #------------choice 2/2 <Kolepoint +1> Stay awkwardly silent
-        label kole_1_sorry:
+        label kole_1_silent:
 
             m "(Erm...Well, this is awkward…)"
 
@@ -1030,11 +1030,11 @@ label end_choice_1:
 
         menu:
             "Are you showing me what you did or not?":
-                isaacPoints += 1
+                $ isaacPoints += 1
                 jump isaac_2_show
 
             "Nevermind, shouldn't have asked a weirdo":
-                isaacPoints -= 1
+                $ isaacPoints -= 1
                 jump isaac_2_weirdo
             
     #—---------choice 1/2 <isaac point +1> Are you showing me what you did or not?
@@ -1170,7 +1170,7 @@ label end_choice_1:
 
         m "Ah no, I was just at the schoolyard over there until I noticed you went over here."
 
-        m "I remembered that I never got to apologize for bumping into you when we met for the first time…I’m sorry".
+        m "I remembered that I never got to apologize for bumping into you when we met for the first time…I’m sorry."
 
         k "O-oh, is that so. I don’t even remember."
 
@@ -1211,11 +1211,11 @@ label end_choice_1:
 
         menu:
             "Complement Kole’s scales":
-                kolePoints -= 1
+                $ kolePoints -= 1
                 jump kole_2_compliment
             
             "Avoid and talk about the snail":
-                kolePoints += 1
+                $ kolePoints += 1
                 jump kole_2_snail
 
     #----------choice 1/2 <kolepoint -1> Complement Kole’s scales
@@ -1311,7 +1311,7 @@ label end_choice_2:
 
     an "Hello, ladies and gentlefish! I hope everyone is having fun tonight!"
 
-    The crowd cheers.
+    "The crowd cheers."
     
     an "We are thrilled to have The Hook this year thanks to our organizers, a-claws to them!"
 
@@ -1331,7 +1331,7 @@ label end_choice_2:
 
     m "Congrats you two! Now go up!"
 
-    Clamantha: "Oh, it would have been better if you were chosen instead of me."
+    Clamantha "Oh, it would have been better if you were chosen instead of me."
 
     m "Oh, don’t. I’m happy for you. I don’t need anyone to make me happy. Now go, hurry. They’re calling for you."
 
