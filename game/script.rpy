@@ -25,6 +25,9 @@ image Kole:
 image Blobby:
     "Blobby_HAPPY.png"
 
+int kolePoints = 0;
+int isaacPoints = 0;
+
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -168,7 +171,8 @@ label start:
 
     scene bg infirmary
 
-  "You slowly start to open your eyes and find yourself at a kind of weird infirmary. There is a Clam next to you." 
+    "You slowly start to open your eyes and find yourself at a kind of weird infirmary. There is a Clam next to you." 
+    
     show Clamantha:
         xalign 0.5
         yalign 0.5
@@ -598,8 +602,8 @@ label start:
 
     "(Hmmm...now what. I’m free at the moment. What do people do after a blind date doesn’t work out?)"
     
-    show Kole
-    show Whitefish
+    show Kole at right
+    show Whitefish at left
 
     "I turned to look out the hallway window and saw two fish swimming by, one of them is the familiar goldfish again with the same whitefish that was with him last week."
 
@@ -611,283 +615,324 @@ label start:
     "(Aaahhhh, what do I do? Is he going to beat up that whitefish again?)"
 
 # Choices
- #   [+1 Isaac]  Stay in and avoid making eye contact longer. --> go Love Interest Isaac - scene 1
- #   [+1 Kole]    Help the whitefish.                         --> go to Love Interest Kole - scene 1
+#   [+1 Isaac]  Stay in and avoid making eye contact longer. --> go Love Interest Isaac - scene 1
+#   [+1 Kole]    Help the whitefish.                         --> go to Love Interest Kole - scene 1
 
+    menu:
+        "Stay in and avoid making eye contact longer":
+            isaacPoints+=1
+            jump isaac_1
 
-# Love Interest Isaac - scene 1
-    "(Nuh-uh! Not getting there again!)"
+        "Help the whitefish":
+            kolePoints+=1
+            jump kole_1
 
-    "That fish seems like a really bad guy."
 
-    "When I turn around a sudden funny face scares me."
+    label isaac_1:
+        "(Nuh-uh! Not getting there again!)"
 
-    #show zoomed in isaac
+        "That fish seems like a really bad guy."
 
-    who "HEY!"
+        "When I turn around a sudden funny face scares me."
 
-    "(THAT SCARED THE SHIT OUT OF ME!)"
+        show isaac:
+            zoom 1.5
 
-    "I look at him in shock."
+        who "HEY!"
 
-    "(What is this guy doing? His amphibian face is very close to mine.)"
+        "(THAT SCARED THE SHIT OUT OF ME!)"
 
-    who "UM I- I CouLdN'T REallY aPoloGi–"
+        "I look at him in shock."
 
-    "Wait up. Collect yourself together, figure out what you want to say and say it."
+        "(What is this guy doing? His amphibian face is very close to mine.)"
 
-    who "Allright, sorry."
+        who "UM I- I CouLdN'T REallY aPoloGi–"
 
-    "The guy takes a step backwards, a deep breath and makes an actual sentence."
+        m "Wait up. Collect yourself together, figure out what you want to say and say it."
 
-    who " Sorry, I can't recall introducing myself. The name's Isaac Newt-On, I am not really a resident of this lake, I come from a far more mysterious land. The SUR-FACE!"
+        who "Allright, sorry."
 
-    "Isaac spread his arms up open to bedazzle the word 'SUR-FACE'."
+        "The guy takes a step backwards, a deep breath and makes an actual sentence."
 
-    "(???)"
+        who " Sorry, I can't recall introducing myself. The name's Isaac Newt-On, I am not really a resident of this lake, I come from a far more mysterious land. The SUR-FACE!"
 
-    "(Does he think he's cool because of that?)"
+        "Isaac spread his arms up open to bedazzle the word 'SUR-FACE'."
 
-    m "So what?"
+        "(???)"
 
-    "The guy looks completely devastated."
+        "(Does he think he's cool because of that?)"
 
-    i "HOW DOESN'T IT SHOCK YOU?"
+        m "So what?"
 
-    "I mean, why would it? I also come from the sur– (wait…)"
+        "The guy looks completely devastated."
 
-    i "You also what?"
+        i "HOW DOESN'T IT SHOCK YOU?"
 
-    "I feel interrogated right now."
+        m "I mean, why would it? I also come from the sur– (wait…)"
 
-    "(Dammit why did I mention it??)"
+        i "You also what?"
 
-    i "Do you have any information about it?"
+        "I feel interrogated right now."
 
-    "Errr, I have no idea what you are talking about!"
+        "(Dammit why did I mention it??)"
 
-    i "Are you playing dumb right now?"
+        i "Do you have any information about it?"
 
-    "Wait, maybe this guy can help me get out!"
+        "Errr, I have no idea what you are talking about!"
 
-    "Yeah...If I told you a secret, would you NOT tell everyone else?"
+        i "Are you playing dumb right now?"
 
-    "Do you even think anybody would believe me? In their eyes I am just a Surface-Nerd."
+        "Wait, maybe this guy can help me get out!"
 
-    "{i}sighs*{/i} Fine, I'll tell you. I am… actually a human, I live on the surface. I don't know how, nor why I woke up into this weird world. The only thing I remember was being rejected by my crush at the local lake and flying away."
+        "Yeah...If I told you a secret, would you NOT tell everyone else?"
 
-    "Um, I know how sounding crazy feels like, and most of the time I am the one who's doing it. Buuuut… As a Surface-Nerd I am finding it quite hard to believe you."
+        "Do you even think anybody would believe me? In their eyes I am just a Surface-Nerd."
 
-    "Okay nevermind, I knew it was gonna be useless."
+        "{i}sighs*{/i} Fine, I'll tell you. I am… actually a human, I live on the surface. I don't know how, nor why I woke up into this weird world. The only thing I remember was being rejected by my crush at the local lake and flying away."
 
-    "I was getting up and getting closer to the door, when Isaac talked."
+        "Um, I know how sounding crazy feels like, and most of the time I am the one who's doing it. Buuuut… As a Surface-Nerd I am finding it quite hard to believe you."
 
-    "Let's say I believe you."
+        "Okay nevermind, I knew it was gonna be useless."
 
-    "Tell me something only a human would know."
+        "I was getting up and getting closer to the door, when Isaac talked."
 
-    "I pause for a moment and declare my answer."
+        "Let's say I believe you."
 
-# -----------choice 1/2 —<isaacpoint -1> (This is useless, I am just talking to a fever dream Axolotl.)
+        "Tell me something only a human would know."
 
-    m "Oh I don’t know, pfft, we invented cars?"
+        "I pause for a moment and declare my answer."
 
-    i "C-carS? What is that?"
+        menu:
+            "This is useless, I am just talking to a fever dream Axolotl.":
+                isaacPoints -= 1
+                jump isaac_1_fever
+            
+            "This guy wants a human only secret? Fair enough.":
+                isaacPoints += 1
+                jump isaac_1_secret
+        
+        # -----------choice 1/2 —<isaacpoint -1> (This is useless, I am just talking to a fever dream Axolotl.)
+        label isaac_1_fever:
 
-    m "Oh, we made them so it can transport us from one location to another!"
+            m "Oh I don’t know, pfft, we invented cars?"
 
-    i "Sooo, it is like how Remoras suck on sharks to go places?"
+            i "C-carS? What is that?"
 
-    m "YEs, but without the sucking… and the sharks."
+            m "Oh, we made them so it can transport us from one location to another!"
 
-    "The axolotl squints its eye in deep thought."
+            i "Sooo, it is like how Remoras suck on sharks to go places?"
 
-    i "Interesting concept…how would you withstand the water resistance and its friction? Wouldn’t you need to hold on to something?"
+            m "YEs, but without the sucking… and the sharks."
 
-    m"Wellllll kind of no, you’ll be sitting and driving the vehicle if you’re the driver. Sometimes you can sit in other people’s car too."
+            "The axolotl squints its eye in deep thought."
 
-    i "Fascinating... Ahem, I have concluded that I will believe you for now based on the concept of 'cars' is foreign to me."
+            i "Interesting concept…how would you withstand the water resistance and its friction? Wouldn’t you need to hold on to something?"
 
-    m "Greaaaaat."
+            m"Wellllll kind of no, you’ll be sitting and driving the vehicle if you’re the driver. Sometimes you can sit in other people’s car too."
 
-    "I look at the hallway window and the goldfish isn’t there anymore."
+            i "Fascinating... Ahem, I have concluded that I will believe you for now based on the concept of 'cars' is foreign to me."
 
-    "(Here’s my chance!)"
+            m "Greaaaaat."
 
-    m "Hey, so it was a fun talk. I have to go now. Bye!"
+            "I look at the hallway window and the goldfish isn’t there anymore."
 
-    i "Wai– and they are gone."
+            "(Here’s my chance!)"
 
-#------------choice 2/2 <isaacpoint +1> (This guy wants a human only secret? Fair enough. )
+            m "Hey, so it was a fun talk. I have to go now. Bye!"
 
-    "(Let’s see… he’s an axolotl. An aquatic salamander creature from the surface.)"
+            i "Wai– and they are gone."
 
-    m "Ok, I’m pretty sure you know humans breathe only air and they can’t live underwater."
+            jump end_choice_1
 
-    i "Duh, that’s why we don’t see them here always."
+        #------------choice 2/2 <isaacpoint +1> (This guy wants a human only secret? Fair enough. )
+        label isaac_1_secret:
 
-    m "Did you knooooow….."
+            "(Let’s see… he’s an axolotl. An aquatic salamander creature from the surface.)"
 
-    "(Oh no, I’m drawing blank here. Quick! Check my surroundings. Think of something!)"
+            m "Ok, I’m pretty sure you know humans breathe only air and they can’t live underwater."
 
-    "And then I see his eyes and then windows. I noticed the reflection of my face."
+            i "Duh, that’s why we don’t see them here always."
 
-    "(OH!)"
+            m "Did you knooooow….."
 
-    m "Did you know humans have eyelids?"
+            "(Oh no, I’m drawing blank here. Quick! Check my surroundings. Think of something!)"
 
-    i "........"
+            "And then I see his eyes and then windows. I noticed the reflection of my face."
 
-    m "........"
+            "(OH!)"
 
-    i " OH MY GOD, YOU ARE A HUMAN! I MEAN YOU WERE A HUMAN. Of course, no one here has seen a human before but you somehow know!"
+            m "Did you know humans have eyelids?"
 
-    I "can see the axolotl’s starry eyes which made me think it’s very cute."
+            i "........"
 
-    m "Ha ha yeah, now you believe me?"
+            m "........"
 
-    "Isaac starts rambling on this profound secret."
+            i " OH MY GOD, YOU ARE A HUMAN! I MEAN YOU WERE A HUMAN. Of course, no one here has seen a human before but you somehow know!"
 
-    m "And did you know axolotl DO NOT have eyelids?"
+            I "can see the axolotl’s starry eyes which made me think it’s very cute."
 
-    i "[{i}]Gasp{/i} I DIDN’T REALIZE MYSELF! Tell me, HUMAN! I must research you!"
+            m "Ha ha yeah, now you believe me?"
 
-    m "Well…"
+            "Isaac starts rambling on this profound secret."
 
-    "(Oh, the goldfish already gone. This is my chance)"
+            m "And did you know axolotl DO NOT have eyelids?"
 
-    m "Maybe next time? I have to go somewhere. Bye!"
+            i "[{i}]Gasp{/i} I DIDN’T REALIZE MYSELF! Tell me, HUMAN! I must research you!"
 
-    i "Oh no, please wai– aaaand they’re gone."
+            m "Well…"
+
+            "(Oh, the goldfish already gone. This is my chance)"
+
+            m "Maybe next time? I have to go somewhere. Bye!"
+
+            i "Oh no, please wai– aaaand they’re gone."
+
+            jump end_choice_1
 
 
 # Love interest Kole - scene 1
-    "(Arrgghh, why are there no teachers around to deal with this.)"
+    label kole_1:
 
-    "I still feel bad that I left that little guy behind for my selfish escape."
+        "(Arrgghh, why are there no teachers around to deal with this.)"
 
-    show Kole
-    show whitefish
+        "I still feel bad that I left that little guy behind for my selfish escape."
 
-    "(Oh, I got an idea. I’ll get in between them and make a big commotion so that somebody can come and Kole can’t take him further away.)"
+        show Kole at right
+        show whitefish at left
 
-    "(Ok, I’m gonna do it.)"
+        "(Oh, I got an idea. I’ll get in between them and make a big commotion so that somebody can come and Kole can’t take him further away.)"
 
-    "(With lots of anxiety and adrenaline running in me I got up and swam in between them."
+        "(Ok, I’m gonna do it.)"
 
-    "(Yes! They’re further apart now!)"
+        "(With lots of anxiety and adrenaline running in me I got up and swam in between them."
 
-    k "Hey, what are you doing?"
+        "(Yes! They’re further apart now!)"
 
-    m "UMM ! I HAVE A QUESTION TO YOU, KOLE."
+        k "Hey, what are you doing?"
 
-    "(I hope I’m loud enough.)"
+        m "UMM ! I HAVE A QUESTION TO YOU, KOLE."
 
-    k "Oh, and what is it? I can hear you just fine, you know."
+        "(I hope I’m loud enough.)"
 
-    "I caught the whitefish student’s attention and signal them with my eyes to hurry and leave while they still can."
+        k "Oh, and what is it? I can hear you just fine, you know."
 
-    "The whitefish guy looks confused."
+        "I caught the whitefish student’s attention and signal them with my eyes to hurry and leave while they still can."
 
-    m "DO YOU HAVE A THING IN BEATING UP STUDENTS, KOLE?"
+        "The whitefish guy looks confused."
 
-    "Kole’s eyebrows furrow."
+        m "DO YOU HAVE A THING IN BEATING UP STUDENTS, KOLE?"
 
-    "(Uh oh, hurry, dude. Go!)"
+        "Kole’s eyebrows furrow."
 
-    k "What exactly are you trying to do?"
+        "(Uh oh, hurry, dude. Go!)"
 
-    "Kole gets up really close to me."
+        k "What exactly are you trying to do?"
 
-    "(Ugh, is he still not leaving? I have no other choice.)"
+        "Kole gets up really close to me."
 
-    m "Y-YEAH, I SAW YOU WITH HIM THE OTHER WEEK. HE WAS UNCONSCIOUS ON THE GROUND COVERED IN --."
+        "(Ugh, is he still not leaving? I have no other choice.)"
 
-    k "HEY–"
+        m "Y-YEAH, I SAW YOU WITH HIM THE OTHER WEEK. HE WAS UNCONSCIOUS ON THE GROUND COVERED IN --."
 
-    wf "WAIT, STOP!!"
+        k "HEY–"
 
-    m "H-huh?"
+        wf "WAIT, STOP!!"
 
-    "The whitefish stood between us with fins stretched out."
+        m "H-huh?"
 
-    wf "Stop it! Kole didn’t do anything to me!"
+        "The whitefish stood between us with fins stretched out."
 
-    wf "He was just looking out for us smaller fish against the bigger fish bullies!"
+        wf "Stop it! Kole didn’t do anything to me!"
 
-    "(Oh no, I was wrong this whole time!?)"
+        wf "He was just looking out for us smaller fish against the bigger fish bullies!"
 
-    m "But then why did you look so nervous when you went to him? I bet he made you his lackey, didn’t he?"
+        "(Oh no, I was wrong this whole time!?)"
 
-    wf "No no, I went to him to thank him for standing up for me against those mean fish bullies."
+        m "But then why did you look so nervous when you went to him? I bet he made you his lackey, didn’t he?"
 
-    "(Now that I think about it, there was another slightly bigger fish unconscious in the scene when I arrived and Kole was next to that fish and not the whitefish.)"
+        wf "No no, I went to him to thank him for standing up for me against those mean fish bullies."
 
-    k "Like I said, I wasn’t there to help you. They were in my way and they just happened to annoy me, hmp!"
+        "(Now that I think about it, there was another slightly bigger fish unconscious in the scene when I arrived and Kole was next to that fish and not the whitefish.)"
 
-    "Kole crossed his arm fins and looked away with a pout on his face."
+        k "Like I said, I wasn’t there to help you. They were in my way and they just happened to annoy me, hmp!"
 
-    m "Then why did you yell help?"
+        "Kole crossed his arm fins and looked away with a pout on his face."
 
-    wf "I did but I fainted afterwards. Kole had to take on three other big fishes which I think it’s going to go horribly. That’s why I yelled for help."
+        m "Then why did you yell help?"
 
-    wf "But who knew he was so strong!"
+        wf "I did but I fainted afterwards. Kole had to take on three other big fishes which I think it’s going to go horribly. That’s why I yelled for help."
 
-    "(I can see the twinkles in his eyes from admiration.)"
+        wf "But who knew he was so strong!"
 
-    k "I’m not that strong, they’re just weak for a big fish."
+        "(I can see the twinkles in his eyes from admiration.)"
 
-    m "..."
+        k "I’m not that strong, they’re just weak for a big fish."
 
-    k "What? If you got something then say it. I don’t like that stare."
+        m "..."
 
-    "(All this time it was all a misunderstanding…He was actually a pretty nice fish… Oh no! It finally hit me, I really want to crawl in a cave!)"
+        k "What? If you got something then say it. I don’t like that stare."
 
-    "I got to say something but I’m too incredibly embarrassed after what I just yelled out loud."
+        "(All this time it was all a misunderstanding…He was actually a pretty nice fish… Oh no! It finally hit me, I really want to crawl in a cave!)"
 
-#------------choice 1/2 <Kolepoint +1> I apologize. 
+        "I got to say something but I’m too incredibly embarrassed after what I just yelled out loud."
 
-    m "...- -rry."
+        menu:
+            "Apologize":
+                kolePoints += 1
+                jump kole_1_sorry
 
-    k"Hm? What did you just say?"
+            "Stay awkwardly silent":
+                kolePoints += 1
+                jump kole_1_silent
 
-    m "I’M SO SORRY! I-."
+    #------------choice 1/2 <Kolepoint +1> I apologize. 
+        label kole_1_sorry:
+            m "...- -rry."
 
-    k "Whoa, you don’t have to scream again."
+            k"Hm? What did you just say?"
 
-    m "I’m so sorry, to you two. Kole, I was being rude to you the most. There are no excuses for what I have done."
+            m "I’M SO SORRY! I-."
 
-    wf "Yeah, I appreciate how you were trying to protect me but I’m more glad it’s been cleared up."
+            k "Whoa, you don’t have to scream again."
 
-    m "Yeah, and Kole… not gonna lie, you are very cool for standing up against those bullies even though I wasn’t there to witness it."
- 
-    k "W-wha- it was nothing."
+            m "I’m so sorry, to you two. Kole, I was being rude to you the most. There are no excuses for what I have done."
 
-    "(Oh, he looked away again...Is that a blush I see?)"
+            wf "Yeah, I appreciate how you were trying to protect me but I’m more glad it’s been cleared up."
 
-    k "If that’s all, then let’s go, you said you will get me a drink as a thank you."
+            m "Yeah, and Kole… not gonna lie, you are very cool for standing up against those bullies even though I wasn’t there to witness it."
+        
+            k "W-wha- it was nothing."
 
-    wf "Oh, uh yes! Bye, now."
+            "(Oh, he looked away again...Is that a blush I see?)"
 
-    hide Kole
-    hide Whitefish
+            k "If that’s all, then let’s go, you said you will get me a drink as a thank you."
 
-    "And so the two fish left to the direction of the cafeteria to get drinks and I went ahead to see Clam to talk about how Jawshua is not it."
- 
-#------------choice 2/2 <Kolepoint +1> Stay awkwardly silent
+            wf "Oh, uh yes! Bye, now."
 
-    m "Erm...Well, this is awkward…"
+            hide Kole
+            hide Whitefish
 
-    k "Yeah, if that’s all then we’re gonna go."
+            "And so the two fish left to the direction of the cafeteria to get drinks and I went ahead to see Clam to talk about how Jawshua is not it."
 
-    m "Um, I-"
+            jump end_choice_1
 
-    "(Oh, they already left… I feel like I missed my chance to say something there.)"
+    #------------choice 2/2 <Kolepoint +1> Stay awkwardly silent
+        label kole_1_sorry:
 
-    "I then went to see Clam to talk about how my bind date went and what an interesting choice she picked for me."
-    #-----------------------------------end
+            m "(Erm...Well, this is awkward…)"
 
+            k "Yeah, if that’s all then we’re gonna go."
 
+            m "Um, I-"
+
+            "(Oh, they already left… I feel like I missed my chance to say something there.)"
+
+            "I then went to see Clam to talk about how my bind date went and what an interesting choice she picked for me."
+
+            jump end_choice_1
+        #-----------------------------------end
+
+label end_choice_1:
 #---------Blind date - Blob
     scene cafeteria
 
@@ -898,268 +943,350 @@ label start:
     "I think my date is called… Blobby?"
 
     show Blobby
+
     m "..."
+
     m "What do you like to do for a hobby?"
 
     b "Blobbliolblobloblblubloblibloblblob"
+
     m "Okay… that sounds fun."
+
     b "Blobloblob."
     m "Okay so… How did you get to know Clamantha?"
+
     b "Blobbloblboblobbliol lblobloboblbol blobbliblobbylbolblobloblobloblobly blolbublboltob botokbitkbloy."
+
     "(I did not catch any of that)"
+
     m "Cool!"
+
     b "Blobloblobolbo?"
+
     m "{i}sighs{/i} I am sorry but I cannot understand a single word that is coming out of your mouth. Seriously, why did Clamantha set up a date between us?"
+
     b "Blob blob..."
-    "(I’m reaching my limit here.)"
+
+    m "(I’m reaching my limit here.)"
+
     "We continue our date till I finish my portion of the food and drink fast."
+
     m "Hey…Blobby, it has been a nice lunch with you but I’m afraid I don’t see the future of us because of … our language barrier."
+
     b "Blob?"
+
     m "Yeah, I’m sorry. I…I remembered I have errands to do."
+
     b "Bloblob…"
+
     m "Thank you for being so understanding. I’ll be going now. Bye!"
-    "I exited the the classroom feeling exhausted after paying really close attention to his non-verbal language. Can everyone else hear what he says? Am I the only one who can’t hear him?"
-     "Well I’m free now. Where should I go to be alone for a bit to regain my energy?"
+
+    "I exited the the classroom feeling exhausted after paying really close attention to his non-verbal language."
+
+    "Can everyone else hear what he says? Am I the only one who can’t hear him?"
+    
+    "Well I’m free now. Where should I go to be alone for a bit to regain my energy?"
 #Choose where to go next
 #   [School yard] → Kole’s scene 2
 
 #   [Classroom] → Isaac’s scene 2
 
+    menu:
+        "Choose where to go next"
+
+        "School yard":
+            jump kole_2
+
+        "Classroom":
+            jump isaac_2
+
 
 # Love Interest Isaac - scene 2
-    "I decide to go to my classroom, on my way there I find a familiar face."
+    label isaac_2:
 
-    m "Oh! It's you."
+        scene classroom
 
-    i "It’s not 'you'. The name’s Isaac Newt-on. "
+        "I decide to go to my classroom, on my way there I find a familiar face."
 
-    m "It's quite weird to refer to yourself by your full name y'know?"
+        show isaac
 
-    i "Sorry. I just love to have a full name. I don’t think I know your name either."
+        m "Oh! It's you."
 
-    "(This guy doesn't look like it, but he is quite narcissistic about himself.)"
+        i "It’s not 'you'. The name’s Isaac Newt-on. "
 
-    "I told him my name."
+        m "It's quite weird to refer to yourself by your full name y'know?"
 
-    m "So, Isaac The Almighty Newt-On, why don't you take me to see the USO that crushed me and almost caused such a pretty fish like me to die?"
+        i "Sorry. I just love to have a full name. I don’t think I know your name either."
 
-    i "Err…"
-    
-    "Isaac pushes up his glasses."
-#—---------choice 1/2 <isaac point +1> Are you showing me what you did or not?
-    i "I’m afraid it’s no longer here anymore."
-    
-    m "What do you mean?"
+        "(This guy doesn't look like it, but he is quite narcissistic about himself.)"
 
-    i "It disappeared! It was here for a few days and then a mysterious hook took it away!"
+        "I told him my name."
 
-    i"What a phenomenon I say. It was a legendary event to see it unfold! I have never seen such a massive hook before in my life. Not even on the Surface!"
+        m "So, Isaac The Almighty Newt-On, why don't you take me to see the USO that crushed me and almost caused such a pretty fish like me to die?"
 
-    "Again with the sparkly eyes."
+        i "Err…"
+        
+        "Isaac pushes up his glasses."
 
-    "(Hook, huh? It must have been some locals up there who took care of the truck afterwards.)"
+        menu:
+            "Are you showing me what you did or not?":
+                isaacPoints += 1
+                jump isaac_2_show
 
-    "..."
+            "Nevermind, shouldn't have asked a weirdo":
+                isaacPoints -= 1
+                jump isaac_2_weirdo
+            
+    #—---------choice 1/2 <isaac point +1> Are you showing me what you did or not?
+        label isaac_2_show:
 
-    "(I hope it wasn’t too traumatizing for that girl when it happens, I hope things are ok up there.)"
+            i "I’m afraid it’s no longer here anymore."
+            
+            m "What do you mean?"
 
-    i "What’s wrong? You look sad. *gasp* Do you know something about that hook?"
+            i "It disappeared! It was here for a few days and then a mysterious hook took it away!"
 
-    m "Well it’s a bit of a long story…"
+            i"What a phenomenon I say. It was a legendary event to see it unfold! I have never seen such a massive hook before in my life. Not even on the Surface!"
 
-    "I told Isaac what that hook was for and that USO was another type of human-made vehicle that hit me."
+            "Again with the sparkly eyes."
 
-    i "...My, I’m glad the USO isn’t abandoned. It gets to return to the surface…"
-    
-    "Somehow that lowers Isaac’s mood."
+            "(Hook, huh? It must have been some locals up there who took care of the truck afterwards.)"
 
-    m "Yeah…"
+            "..."
 
-    m "Hey, how did you become so obsessed with the humans and the Surface?"
+            "(I hope it wasn’t too traumatizing for that girl when it happens, I hope things are ok up there.)"
 
-    i "Oh!"
+            i "What’s wrong? You look sad. *gasp* Do you know something about that hook?"
 
-    "He’s back all smiling again."
+            m "Well it’s a bit of a long story…"
 
-    i "You see, I was born from the Surface! I don’t exactly remember about my family members of my kind but I did have a human child who took care of me."
+            "I told Isaac what that hook was for and that USO was another type of human-made vehicle that hit me."
 
-    i "She was a very nice kid, who would always come and play with me behind an invisible wall. But one day, the human child decided to free me into this place. I didn’t need to be free, I was quite content there. Ever since then, I’ve been obsessed with trying to go back but nothing yet.  Hahaha." 
+            i "...My, I’m glad the USO isn’t abandoned. It gets to return to the surface…"
+            
+            "Somehow that lowers Isaac’s mood."
 
-    "(...)"
+            m "Yeah…"
 
-    i "Oh no, I’m making you sad, you’re crying."
+            m "Hey, how did you become so obsessed with the humans and the Surface?"
 
-    "Isaac wipes my tears away."
+            i "Oh!"
 
-    i "There There, no need to be sad for me. I am completely capable of returning home."
+            "He’s back all smiling again."
 
-    m "I-I’m not crying. *sniff* That kid is dumb for putting you in here. You’re so great and nice. *sniff*"
+            i "You see, I was born from the Surface! I don’t exactly remember about my family members of my kind but I did have a human child who took care of me."
 
-    "Isaac's cheeks grows rosy red with a smile after the nice compliment I gave him."
+            i "She was a very nice kid, who would always come and play with me behind an invisible wall. But one day, the human child decided to free me into this place. I didn’t need to be free, I was quite content there. Ever since then, I’ve been obsessed with trying to go back but nothing yet.  Hahaha." 
 
-    "And we talk further more about the surface world, my life, his life and the humans who took care of him are like."
+            "(...)"
 
-    "We became closer and I ended up joining his Surface research. "
+            i "Oh no, I’m making you sad, you’re crying."
 
-    "Before I realized it’s already prom day."
+            "Isaac wipes my tears away."
 
-#--------choice 2/2 <isaac point -1> Nevermind, shouldn't have asked a weirdo.
+            i "There There, no need to be sad for me. I am completely capable of returning home."
 
-    "nono wait!"
+            m "I-I’m not crying. *sniff* That kid is dumb for putting you in here. You’re so great and nice. *sniff*"
 
-    "I ignored the pink nerd and continued my way to the classroom, halfway through he stopped following me."
+            "Isaac's cheeks grows rosy red with a smile after the nice compliment I gave him."
 
-    "I sat at my desk, the last one next to the window and grabbed a nearby book."
+            "And we talk further more about the surface world, my life, his life and the humans who took care of him are like."
 
-    "Before I realized it’s already prom day."
+            "We became closer and I ended up joining his Surface research. "
+
+            "Before I realized it’s already prom day."
+
+            jump end_choice_2
+
+    #--------choice 2/2 <isaac point -1> Nevermind, shouldn't have asked a weirdo.
+
+        label isaac_2_weirdo:
+
+            i "nono wait!"
+
+            "I ignored the pink nerd and continued my way to the classroom, halfway through he stopped following me."
+
+            "I sat at my desk, the last one next to the window and grabbed a nearby book."
+
+            "Before I realized it’s already prom day."
+
+            jump end_choice_2
 #
 
 
 
 # Love interest Kole - scene 2
+    label kole_2:
 
-    "I chose to come to the schoolyard for fresh air… or fresher water in this case."
+        scene schoolyard
 
-    "(Ahh, peace and quiet.)"
+        "I chose to come to the schoolyard for fresh air… or fresher water in this case."
 
-    "(It’s now 2 blind dates and I’m already losing hope that I will actually find someone…)"
+        "(Ahh, peace and quiet.)"
 
-    "My mind wandered around until I noticed Kole in the distance walking around the corner of the building. It looks like he’s carrying something small in his fins."
+        "(It’s now 2 blind dates and I’m already losing hope that I will actually find someone…)"
 
-    "(What's he up to?)"
+        "My mind wandered around until I noticed Kole in the distance walking around the corner of the building."
 
-    "I followed him to the back of the building."
+        show Kole
+        
+        "It looks like he’s carrying something small in his fins."
 
-    "(What is he doing with that snail there?)"
+        "(What's he up to?)"
 
-    k "Here, eat up."
+        "I followed him to the back of the building."
 
-    "(He’s…feeding the snail.)"
+        "(What is he doing with that snail there?)"
 
-    "(...Somehow that gesture of him feeding the snail is…making my heart feel fuzzy.)"
+        k "Here, eat up."
 
-    "‘Krrzz krzz’"
+        "(He’s…feeding the snail.)"
 
-    "(Ah! My dorsal fin brushed some of the pebbles below me and it made a little crunch noises.)"
+        "(...Somehow that gesture of him feeding the snail is…making my heart feel fuzzy.)"
 
-    k "Who’s there?"
+        "‘Krrzz krzz’"
 
-    "..."
+        "(Ah! My dorsal fin brushed some of the pebbles below me and it made a little crunch noises.)"
 
-    k "I can see your fin, you know."
+        k "Who’s there?"
 
-    "(Dang it)"
+        "..."
 
-    "I came out and waved a bit."
+        k "I can see your fin, you know."
 
-    m "Heyyy."
+        "(Dang it)"
 
-    k "Oh, it’s you again. Are you going to bother me again? Like you just followed me here?"
+        "I came out and waved a bit."
 
-    m "N-no, I wouldn’t dare to. It just happens to be like that."
+        m "Heyyy."
 
-    k "Ah I see, so what do you want from me this time?"
+        k "Oh, it’s you again. Are you going to bother me again? Like you just followed me here?"
 
-    "(I can hear from his sarcasm that he doesn’t believe me.)"
+        m "N-no, I wouldn’t dare to. It just happens to be like that."
 
-    m "Ah no, I was just at the schoolyard over there until I noticed you went over here."
+        k "Ah I see, so what do you want from me this time?"
 
-    m "I remembered that I never got to apologize for bumping into you when we met for the first time…I’m sorry".
+        "(I can hear from his sarcasm that he doesn’t believe me.)"
 
-    k "O-oh, is that so. I don’t even remember."
+        m "Ah no, I was just at the schoolyard over there until I noticed you went over here."
 
-    "Kole is looking away with eyebrows furrowing a little bit while petting the snail. "
+        m "I remembered that I never got to apologize for bumping into you when we met for the first time…I’m sorry".
 
-    "(Oh, as I got closer I noticed a bandage on the snail’s shell.)"
+        k "O-oh, is that so. I don’t even remember."
 
-    "I swim closer towards them."
+        "Kole is looking away with eyebrows furrowing a little bit while petting the snail. "
 
-    m "Oh no, did that snail get injured? Is it ok?"
+        "(Oh, as I got closer I noticed a bandage on the snail’s shell.)"
 
-    k "...too close.."
+        "I swim closer towards them."
 
-    m "Hm?"
+        m "Oh no, did that snail get injured? Is it ok?"
 
-    "I looked up and didn’t notice until now that my face is really close next to his face when we’re looking at the snail together. Actually, up this close he’s actually a very pretty goldfish. 
-    His golden orange scales are so healthy and shiny looking."
+        k "...too close.."
 
-    k" Your face is too close…"
+        m "Hm?"
 
-    "Kole looks a bit uncomfortable."
+        "I looked up and didn’t notice until now that my face is really close next to his face when we’re looking at the snail together. Actually, up this close he’s actually a very pretty goldfish. 
+        His golden orange scales are so healthy and shiny looking."
 
-    m "Ah! My bad!"
+        k" Your face is too close…"
 
-    "We both look away in the opposite directions."
+        "Kole looks a bit uncomfortable."
 
-    "‘Babump babump babump’"
+        m "Ah! My bad!"
 
-    "(Badum? Is my heart seriously beating over a goldfish?? My face feels a bit warm. N-no, we were just in each other’s personal space that made us uncomfortable, that’s all…Yeah.)"
+        "We both look away in the opposite directions."
 
-    "I take a peek at Kole’s face carefully. "
+        "‘Babump babump babump’"
 
-    "He has his fin curled in that covers a bit of his face."
+        "(Badum? Is my heart seriously beating over a goldfish?? My face feels a bit warm. N-no, we were just in each other’s personal space that made us uncomfortable, that’s all…Yeah.)"
 
-    "(Is he feeling shy as well? …That’s kind of cute.)"
+        "I take a peek at Kole’s face carefully. "
 
-    "I somehow have the urge to say something to tease him. Should I?"
-#----------choice 1/2 <kolepoint -1> Complement Kole’s scales
+        "He has his fin curled in that covers a bit of his face."
 
-    m "Y-your scales are so very shiny looking, Kole."
+        "(Is he feeling shy as well? …That’s kind of cute.)"
 
-    k "Huh? Oh, uh, thanks."
+        "I somehow have the urge to say something to tease him. Should I?"
 
-    m "How do you get them healthy and shiny?"
+        menu:
+            "Complement Kole’s scales":
+                kolePoints -= 1
+                jump kole_2_compliment
+            
+            "Avoid and talk about the snail":
+                kolePoints += 1
+                jump kole_2_snail
 
-    "Kole said he didn’t do much for his scales. We then talked about what our diet is like and if Kole comes here often for the snail. Turns out he found the snail’s shell was damaged but since then it has been healing well."
+    #----------choice 1/2 <kolepoint -1> Complement Kole’s scales
+    label kole_2_compliment:
 
-    "Since this encounter we have become closer as friends and visited behind the building to check on the snail together everyday."
+            m "Y-your scales are so very shiny looking, Kole."
 
-    "And then before I realized it, it’s already Prom day."
-#----------choice 2/2 <kolepoint +1> Avoid and talk about the snail
+            k "Huh? Oh, uh, thanks."
 
-    m "Ahem, have you been taking care of this snail for a while? Is that allowed in school?"
+            m "How do you get them healthy and shiny?"
 
-    k "Not really, I found this snail about 2-3 weeks ago near the school’s garbage disposal area with its shell damaged."
+            "Kole said he didn’t do much for his scales. We then talked about what our diet is like and if Kole comes here often for the snail." 
+            
+            "Turns out he found the snail’s shell was damaged but since then it has been healing well."
 
-    k "Luckily it wasn’t that bad, it might have been a strong current that made it fall and broke a bit of its shell. But the school doesn’t check in the back that often and it’s healing quite well."
+            "Since this encounter we have become closer as friends and visited behind the building to check on the snail together everyday."
 
-    k "Heh, you should have seen how it’s trying to get away from the bandage but it’s still slow."
+            "And then before I realized it, it’s already Prom day."
 
-    "Kole has a big smile recounting the story of how he first met the snail."
+            jump end_choice_2
 
-    "I couldn’t help but smile too because of his infectious smile. "
+    #----------choice 2/2 <kolepoint +1> Avoid and talk about the snail
+    label kole_2_snail:
 
-    "‘Babump babump’"
+            m "Ahem, have you been taking care of this snail for a while? Is that allowed in school?"
 
-    m "You…have a cute smi–"
+            k "Not really, I found this snail about 2-3 weeks ago near the school’s garbage disposal area with its shell damaged."
 
-    "I stopped myself from saying something so embarrassing."
+            k "Luckily it wasn’t that bad, it might have been a strong current that made it fall and broke a bit of its shell. But the school doesn’t check in the back that often and it’s healing quite well."
 
-    k "!?"
+            k "Heh, you should have seen how it’s trying to get away from the bandage but it’s still slow."
 
-    "Kole looked at me with eyes open from what I was about to say."
+            "Kole has a big smile recounting the story of how he first met the snail."
 
-    m "I-I mean snail! You have a cute snail! Becauuuuuse you’re so gentle to it and it looks like it likes you a lot!" 
+            "I couldn’t help but smile too because of his infectious smile. "
 
-    "(Waahh, what a lame excuse!! Someone give me a shell to go inside to!)"
+            "‘Babump babump’"
 
-    k "..."
+            m "You…have a cute smi–"
 
-    k "Pfft"
+            "I stopped myself from saying something so embarrassing."
 
-    "(Hm?)"
+            k "!?"
 
-    "(He laughed.)"
+            "Kole looked at me with eyes open from what I was about to say."
 
-    "I’m in awe and I couldn’t help but laugh at the silly situation too."
+            m "I-I mean snail! You have a cute snail! Becauuuuuse you’re so gentle to it and it looks like it likes you a lot!" 
 
-    "Since this encounter we have gotten to know each other more and we would come behind the building to check on the snail together everyday. "
+            "(Waahh, what a lame excuse!! Someone give me a shell to go inside to!)"
 
-    "Before I realized it’s already prom day."
+            k "..."
+
+            k "Pfft"
+
+            "(Hm?)"
+
+            "(He laughed.)"
+
+            "I’m in awe and I couldn’t help but laugh at the silly situation too."
+
+            "Since this encounter we have gotten to know each other more and we would come behind the building to check on the snail together everyday. "
+
+            "Before I realized it’s already prom day."
+
+            jump end_choice_2
 
 
 
 # Scene 7 - Prom
+
+label end_choice_2:
     "It is prom day. "
 
     "I went on my third blind date but it wasn’t that memorable and we didn’t click with each other. It was some generic fish."
@@ -1325,7 +1452,8 @@ label start:
 
     "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
 
-    #~~~~~~END~~~~~~
+# Neutral Ending
+# (IsaacPoints == KolePoints OR both < 2 points)
 
 #   ~~~~~~~END~~~~~~
 
