@@ -302,18 +302,26 @@ screen navigation():
 
             imagebutton:
                 auto "gui/button/start_%s.png"
+                hover_sound BTNh
+                activate_sound BTNc
                 action Start()
 
         else:
             imagebutton:
                 auto "gui/button/save_%s.png"
+                hover_sound BTNh
+                activate_sound BTNc
                 action ShowMenu("save")
 
         imagebutton:
             auto "gui/button/load_%s.png"
+            hover_sound BTNh
+            activate_sound BTNc
             action ShowMenu("load")
         imagebutton:
             auto "gui/button/credits_%s.png"
+            hover_sound BTNh
+            activate_sound BTNc
             action ShowMenu("about")
 
         if _in_replay:
@@ -323,11 +331,15 @@ screen navigation():
         elif not main_menu:
             imagebutton:
                 auto "gui/button/mainmenu_%s.png"
+                hover_sound BTNh
+                activate_sound BTNc
                 action MainMenu()
 
         if renpy.variant("pc"):
             imagebutton:
                 auto "gui/button/quit_%s.png"
+                hover_sound BTNh
+                activate_sound BTNc
                 action Quit(confirm=not main_menu)
 
 
@@ -472,6 +484,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     imagebutton:
         auto "gui/button/return_%s.png"
         style "return_button"
+        hover_sound BTNh
+        activate_sound BTNc
         action Return()
 
     label title

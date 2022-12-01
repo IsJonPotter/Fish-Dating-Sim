@@ -29,17 +29,17 @@ define config.version = ""
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""Programming: Storm, Gaia
+define gui.about = _p("""Programming: Storm, Gaia, Rin
 
-Sprites: Gaia, Rin
+Sprites: Gaia, Rin, Muhamad
 
 Backgrounds: Muhamad
 
 UI: Muhamad, Gaia
 
-Writing: Goose, Rin, Muhamad, Gaia, Storm
+Writing: Rin, Gaia, Muhamad, Storm, Goose
 
-Music: Ky
+Music and SFX: Ky
 """)
 
 

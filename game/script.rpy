@@ -25,6 +25,15 @@ image Kole:
 image Blobby:
     "Blobby_HAPPY.png"
 
+image Jawshua:
+    "Jawshua.png"
+
+image CGisaac:
+    "CG_ISAAC.png"
+
+image CGkole:
+    "CG_KOLE.png"
+
 #$ kolePoints = 0;
 #$ isaacPoints = 0;
 
@@ -51,20 +60,17 @@ define cr = Character("Crowd")
 default kolePoints = 0
 default isaacPoints = 0
 label start:
-
-
+    play music sad
 # Intro
     # Scene 1 - Confession
-
     scene bg lake
-  
 
     "On a busy afternoon near the pier beach in Lake Well, "
     #----neutral smiling girl
     show Crush
 
     "a girl in a pink dress is standing near the entrance of the pier as if she is waiting for someone to show up. "
-    
+
     "And that someone is me."
 
     m "(She's really here.)"
@@ -80,7 +86,7 @@ label start:
 
     "My heart would beat so fast every time that happens. I’ve heard before that when you and the other person look away after an eye contact it usually means both are interested in each other."
 
-    "I have made sure I’ve showered and dressed neatly for this day! I hope I don’t smell like fish. 
+    "I have made sure I’ve showered and dressed neatly for this day! I hope I don’t smell like fish.
     Oh my god, I’m so nervous. No, I can’t sweat right now after the effort I put in. It’s time to go up to her."
 
     m "{i}Gulp{/i}. H-hi!"
@@ -129,9 +135,11 @@ label start:
     m "O-oh okay, y-yeah, it's no problem. Thanks for your time coming here..."
 
     c "Yeah, thanks for telling me. But hey, no worries, I'm sure there are plenty of fish in the sea! Oh, no pun intended."
-    
+
     scene bg black
-    
+
+    stop music
+
     "'BAM!"
 
     m "(Huh?)"
@@ -165,18 +173,22 @@ label start:
 
     "(At the very least my wish is …)"
 
+
     scene bg white
 
     "(My mind is starting to fade and I let my eyes rest.)"
-    
+
+
     # Scene 2 - Truck-kun's Wrath
+
+    play music main fadein 2.0 fadeout 2.0
 
     m "(Hm? Where am I?)"
 
     scene bg infirmary
 
-    "You slowly start to open your eyes and find yourself at a kind of weird infirmary. There is a Clam next to you." 
-    
+    "You slowly start to open your eyes and find yourself at a kind of weird infirmary. There is a Clam next to you."
+
     show Clamantha:
         xalign 0.5
         yalign 0.5
@@ -200,7 +212,7 @@ label start:
         xalign 0.75
 
     m "(And now a shrimp shows up?)"
-    
+
     di "Thank you, Clamantha, for calling me right up. How are you feeling? Do you have any headache? Physical pain?"
 
     m "No… I don't feel anything weird (which is in fact weirder, why am I in a fish body?)"
@@ -214,8 +226,10 @@ label start:
     d "It's actually Dr. Shrump. you're welcome."
 
     "I was getting up from the bed when suddenly someone crashed into the room."
-    
+
     # Scene 3 - Infirmary room - Isaac
+
+    play music isaac fadein 2.0
 
     who  "I-I'M SO SORRwwYYYY!!!!!!!!!!!"
 
@@ -225,7 +239,7 @@ label start:
         xalign 0.25
 
     show Isaac:
-        xalign 0.75
+        xalign 0.55
 
     cl  "Oh gosh, not this weirdo again..."
 
@@ -237,12 +251,12 @@ label start:
 
     m "What if the U.S.O. is the same thing that crushed my real human self?"
 
-    "..." 
+    "..."
 
     m "Nah no way."
 
     m "This little guy seems harmless."
-    
+
     cl "Come on mc, don't listen to this nerdy-nonsense."
 
     who "W-wait but I really needed to explain this!"
@@ -256,7 +270,8 @@ label start:
 
     "Whoosh"
 
-    scene hallway 
+    scene bg hallway
+    play music main
     show Clamantha
 
     "Me and Clamantha got out of the infirmary."
@@ -274,7 +289,7 @@ label start:
     "(Wait, where is my classroom?)"
 
     "(Clamanthaaaaa, come back!)"
-    
+
     # Scene 4 - School yard - Kole
 
     scene schoolyard
@@ -284,6 +299,8 @@ label start:
     "I ended up being what it seems to be the schoolyard with all the rock and reefs surrounding the building here."
 
     m "Hmmm… yep. I’m lost. I have no idea where my classroom is. Time to turn back."
+
+    play music kole fadein 7.0
 
     "EEK!"
 
@@ -304,7 +321,7 @@ label start:
     "I swim as fast as I can until I see the back of a fish facing another one on the ground."
 
     "I tried to brake by flapping my fins but due to the water resistance I’m guess I’m still not used to this fish body."
-    
+
     "Because I can't stop I'm going crash into the fish with a black cardigan."
 
     m "Watch out!"
@@ -365,7 +382,7 @@ label start:
     k "If you’re still quiet and have nothing to do– huh? They ran off again."
 
 # Scene 5 -  Classroom
-    
+    play music main
     scene bg hallway
 
     "Pant, pant."
@@ -410,7 +427,17 @@ label start:
 
     m "Ahaha, it sounded like I met one of them before."
 
-    cl "The goldfish you met is named Kole, he transferred here a while ago. One day, you were late for class because you overslept. You swam around a corner with your breakfast in your mouth still and bumped into Kole. Afterwards you said you were so scared of his angry face that you blanked out and didn’t remember anymore how you got here. We then later found out he is the new transfer student to the other classroom."
+    play music kole
+
+    cl "The goldfish you met is named Kole, he transferred here a while ago."
+
+    cl "One day, you were late for class because you overslept. "
+
+    cl "You swam around a corner with your breakfast in your mouth still and bumped into Kole. "
+
+    cl "Afterwards you said you were so scared of his angry face that you blanked out and didn’t remember anymore how you got here. "
+
+    cl "We then later found out he is the new transfer student to the other classroom."
 
     m "..."
 
@@ -419,6 +446,8 @@ label start:
     cl "As for the whitefish, they are a goner. Forget about them. Rumor has it that Kole transferred here because he beat all the students up in their previous school. So I recommend steering clear away from them. "
 
     "(Yikes! You don’t have to tell me.)"
+
+    play music main
 
     cl "So anyway, do you even remember what we were talking about before you became unconscious?"
 
@@ -442,19 +471,23 @@ label start:
 
     "I bursted out laughing silently on how superficial this body’s owner – oh wait."
 
-    hide Clamantha 
+    hide Clamantha
+
+    play music sad fadein 1.0 fadeout 2.0
 
     scene bg lake
-    show Girl
+    show Crush
 
     "Memories of my crush flashes through my eyes and I can’t help but to feel bad again about her comment about my smell."
 
-    hide Girl
+    hide Crush
+
+    play music main fadein 1.0
 
     scene bg classroom
     show Clamantha
 
-    "My eyes begin to become blurry from tearing up underwater somehow." 
+    "My eyes begin to become blurry from tearing up underwater somehow."
 
     "Clamantha noticed my sudden silence after my laughter."
 
@@ -511,14 +544,14 @@ label start:
     cl "Hehehe, I do in fact! It’s a surprise for now."
 
     hide clamantha
-    scene school yard
+    scene schoolyard
 
 
     "And so begins a new life in a fish body. "
 
     "I learnt that this is a boarding school and I have my own room! Sweet! "
 
-    "The fish school isn’t so difficult since I used to learn about fishes while working with my family. 
+    "The fish school isn’t so difficult since I used to learn about fishes while working with my family.
     They have similar school subjects here like on the surface though it’s mostly about the world of underwater and stuff. "
 
     "It wasn’t easy at first but I am getting used to this body and the diet as a fish."
@@ -527,7 +560,7 @@ label start:
 
 # Scene 6 - Blind dates - begin
 
-    scene schoolYard
+    scene schoolyard
 
     "It has been a week since I said yes to blind dates to Clamantha. "
 
@@ -539,7 +572,7 @@ label start:
 
     hide Clamantha
 #-----------Blind date - Jawshua
-    scene classroom
+    scene bg classroom
 
     "I entered this empty classroom that Clam noted for me."
 
@@ -579,7 +612,7 @@ label start:
 
     "Jawshua is in his final year and he’s on the school’s basketball team. He got recruited by someone in the league and will leave for them after the prom. "
 
-    j "Just gonna cut to the chase. You look like you wanna find love without spending too much time and I think I’m perfect for you. 
+    j "Just gonna cut to the chase. You look like you wanna find love without spending too much time and I think I’m perfect for you.
     I expect that if we go together to The Hook, we will get married after we finish highschool, move to the ocean and after that have 5 kids. What do you say?"
 
     m "....."
@@ -605,7 +638,9 @@ label start:
     "We say goodbye to each other and I’m left alone in the classroom."
 
     "(Hmmm...now what. I’m free at the moment. What do people do after a blind date doesn’t work out?)"
-    
+
+    play music kole fadein 2.0 fadeout 2.0
+
     show Kole at right
     show Whitefish at left
 
@@ -616,6 +651,8 @@ label start:
 
     "I quickly look away fearing making eye contact with them."
 
+    play music main
+
     "(Aaahhhh, what do I do? Is he going to beat up that whitefish again?)"
 
 # Choices
@@ -624,14 +661,14 @@ label start:
 
     menu:
         "Stay in and avoid making eye contact longer":
-           
+
             #$ isaacPoints = 0;
-            $ isaacPoints += 1
+            $ isaacPoints = isaacPoints + 1
             jump isaac_1
 
         "Help the whitefish":
             #$ kolePoints = 0;
-            $ kolePoints += 1
+            $ kolePoints = kolePoints + 1
             jump kole_1
 
 
@@ -641,6 +678,8 @@ label start:
         "That fish seems like a really bad guy."
 
         "When I turn around a sudden funny face scares me."
+
+        play music isaac fadein 1.0
 
         show isaac:
             zoom 1.5
@@ -711,13 +750,13 @@ label start:
 
         menu:
             "This is useless, I am just talking to a fever dream Axolotl.":
-                $ isaacPoints -= 1
+                $ isaacPoints = isaacPoints - 1
                 jump isaac_1_fever
-            
+
             "This guy wants a human only secret? Fair enough.":
-                $ isaacPoints += 1
+                $ isaacPoints = isaacPoints + 1
                 jump isaac_1_secret
-        
+
         # -----------choice 1/2 —<isaacpoint -1> (This is useless, I am just talking to a fever dream Axolotl.)
         label isaac_1_fever:
 
@@ -799,6 +838,8 @@ label start:
 
 # Love interest Kole - scene 1
     label kole_1:
+
+        play music kole fadein 4.0
 
         "(Arrgghh, why are there no teachers around to deal with this.)"
 
@@ -885,14 +926,14 @@ label start:
 
         menu:
             "Apologize":
-                $ kolePoints += 1
+                $ kolePoints = kolePoints + 1
                 jump kole_1_sorry
 
             "Stay awkwardly silent":
-                $ kolePoints += 1
+                $ kolePoints = kolePoints - 1
                 jump kole_1_silent
 
-    #------------choice 1/2 <Kolepoint +1> I apologize. 
+    #------------choice 1/2 <Kolepoint +1> I apologize.
         label kole_1_sorry:
             m "...- -rry."
 
@@ -907,7 +948,7 @@ label start:
             wf "Yeah, I appreciate how you were trying to protect me but I’m more glad it’s been cleared up."
 
             m "Yeah, and Kole… not gonna lie, you are very cool for standing up against those bullies even though I wasn’t there to witness it."
-        
+
             k "W-wha- it was nothing."
 
             "(Oh, he looked away again...Is that a blush I see?)"
@@ -923,7 +964,7 @@ label start:
 
             jump end_choice_1
 
-    #------------choice 2/2 <Kolepoint +1> Stay awkwardly silent
+    #------------choice 2/2 <Kolepoint -1> Stay awkwardly silent
         label kole_1_silent:
 
             m "(Erm...Well, this is awkward…)"
@@ -941,6 +982,7 @@ label start:
 
 label end_choice_1:
 #---------Blind date - Blob
+    play music main fadeout 1.0
     scene cafeteria
 
     "It has been 3 days since my first blind date and Clam said she found a rare pearl for me."
@@ -991,7 +1033,7 @@ label end_choice_1:
     "I exited the the classroom feeling exhausted after paying really close attention to his non-verbal language."
 
     "Can everyone else hear what he says? Am I the only one who can’t hear him?"
-    
+
     "Well I’m free now. Where should I go to be alone for a bit to regain my energy?"
 #Choose where to go next
 #   [School yard] → Kole’s scene 2
@@ -1011,10 +1053,11 @@ label end_choice_1:
 # Love Interest Isaac - scene 2
     label isaac_2:
 
-        scene classroom
+        scene bg classroom
 
         "I decide to go to my classroom, on my way there I find a familiar face."
 
+        play music isaac fadein 2.0
         show isaac
 
         m "Oh! It's you."
@@ -1032,23 +1075,23 @@ label end_choice_1:
         m "So, Isaac The Almighty Newt-On, why don't you take me to see the USO that crushed me and almost caused such a pretty fish like me to die?"
 
         i "Err…"
-        
+
         "Isaac pushes up his glasses."
 
         menu:
             "Are you showing me what you did or not?":
-                $ isaacPoints += 1
+                $ isaacPoints = isaacPoints + 1
                 jump isaac_2_show
 
             "Nevermind, shouldn't have asked a weirdo":
-                $ isaacPoints -= 1
+                $ isaacPoints = isaacPoints - 1
                 jump isaac_2_weirdo
-            
+
     #—---------choice 1/2 <isaac point +1> Are you showing me what you did or not?
         label isaac_2_show:
 
             i "I’m afraid it’s no longer here anymore."
-            
+
             m "What do you mean?"
 
             i "It disappeared! It was here for a few days and then a mysterious hook took it away!"
@@ -1070,7 +1113,7 @@ label end_choice_1:
             "I told Isaac what that hook was for and that USO was another type of human-made vehicle that hit me."
 
             i "...My, I’m glad the USO isn’t abandoned. It gets to return to the surface…"
-            
+
             "Somehow that lowers Isaac’s mood."
 
             m "Yeah…"
@@ -1083,7 +1126,7 @@ label end_choice_1:
 
             i "You see, I was born from the Surface! I don’t exactly remember about my family members of my kind but I did have a human child who took care of me."
 
-            i "She was a very nice kid, who would always come and play with me behind an invisible wall. But one day, the human child decided to free me into this place. I didn’t need to be free, I was quite content there. Ever since then, I’ve been obsessed with trying to go back but nothing yet.  Hahaha." 
+            i "She was a very nice kid, who would always come and play with me behind an invisible wall. But one day, the human child decided to free me into this place. I didn’t need to be free, I was quite content there. Ever since then, I’ve been obsessed with trying to go back but nothing yet.  Hahaha."
 
             "(...)"
 
@@ -1135,8 +1178,10 @@ label end_choice_1:
 
         "My mind wandered around until I noticed Kole in the distance walking around the corner of the building."
 
+        play music kole fadein 2.0
+
         show Kole
-        
+
         "It looks like he’s carrying something small in his fins."
 
         "(What's he up to?)"
@@ -1147,7 +1192,7 @@ label end_choice_1:
 
         k "Here, eat up."
 
-        "(He’s…feeding the snail.)"
+        "(He’s… feeding the snail.)"
 
         "(...Somehow that gesture of him feeding the snail is…making my heart feel fuzzy.)"
 
@@ -1193,7 +1238,7 @@ label end_choice_1:
 
         m "Hm?"
 
-        "I looked up and didn’t notice until now that my face is really close next to his face when we’re looking at the snail together. Actually, up this close he’s actually a very pretty goldfish. 
+        "I looked up and didn’t notice until now that my face is really close next to his face when we’re looking at the snail together. Actually, up this close he’s actually a very pretty goldfish.
         His golden orange scales are so healthy and shiny looking."
 
         k" Your face is too close…"
@@ -1218,11 +1263,11 @@ label end_choice_1:
 
         menu:
             "Complement Kole’s scales":
-                $ kolePoints -= 1
+                $ kolePoints = kolePoints - 1
                 jump kole_2_compliment
-            
+
             "Avoid and talk about the snail":
-                $ kolePoints += 1
+                $ kolePoints = kolePoints + 1
                 jump kole_2_snail
 
     #----------choice 1/2 <kolepoint -1> Complement Kole’s scales
@@ -1234,8 +1279,8 @@ label end_choice_1:
 
             m "How do you get them healthy and shiny?"
 
-            "Kole said he didn’t do much for his scales. We then talked about what our diet is like and if Kole comes here often for the snail." 
-            
+            "Kole said he didn’t do much for his scales. We then talked about what our diet is like and if Kole comes here often for the snail."
+
             "Turns out he found the snail’s shell was damaged but since then it has been healing well."
 
             "Since this encounter we have become closer as friends and visited behind the building to check on the snail together everyday."
@@ -1269,7 +1314,7 @@ label end_choice_1:
 
             "Kole looked at me with eyes open from what I was about to say."
 
-            m "I-I mean snail! You have a cute snail! Becauuuuuse you’re so gentle to it and it looks like it likes you a lot!" 
+            m "I-I mean snail! You have a cute snail! Becauuuuuse you’re so gentle to it and it looks like it likes you a lot!"
 
             "(Waahh, what a lame excuse!! Someone give me a shell to go inside to!)"
 
@@ -1294,32 +1339,53 @@ label end_choice_1:
 # Scene 7 - Prom
 
 label end_choice_2:
+    play music main fadein 1.0 fadeout 2.0
+
+    scene schoolyard
     "It is prom day. "
 
     "I went on my third blind date but it wasn’t that memorable and we didn’t click with each other. It was some generic fish."
-    
-    "Clamantha was sad that her date canceled on her but then found a new one already. To my surprise it was Blob! "
 
-    "Turns out Blobby agreed to the blind date to make Clamantha happy and then confessed his love for her after our date. Clamantha jumped in joy and will happily go to the prom with him. I can sort of understand what Blob is talking about thanks to Clamantha explaining to me that he just has a heavy accent from the deep water. It will take some time to get used to."
-    
+    show clamantha
+    "Clamantha was sad that her date canceled on her but then found a new one already."
+    show Blobby
+    "To my surprise it was Blob! "
+
+    "Turns out Blobby agreed to the blind date to make Clamantha happy and then confessed his love for her after our date. Clamantha jumped in joy and will happily go to the prom with him. "
+
+    "I can sort of understand what Blob is talking about thanks to Clamantha explaining to me that he just has a heavy accent from the deep water. It will take some time to get used to."
+
     "How did Blob survive in the freshwater? I don’t know. Blob is still full of mystery."
 
     "The three of us went together to keep me company and decided we should enjoy our last day of school before we set out in the world."
+
+    play music prom fadein 2.0 fadeout 6.0
+
+    scene bg prom
+
+    show clamantha
+    show Blobby
+
+    "We entered a extremely big and well decorated place."
 
     "(Whoa, I never thought fish could party like this. In the stage there’s a band of fish and other crustaceans playing what you can find in a lake. Like mussel shells as drums, used fishing lines connected to bottle caps, and other creative combinations thrown by the humans used as instruments.)"
 
     "(It really makes you feel ashamed for being an irresponsible human in the past for a moment…)"
 
     "We danced and snacked while talking to other fishes around us."
+    hide clamantha
+    hide Blobby
 
     "(Hmm… I don’t see them. They’ve been kind of in my mind recently.)"
+
+    stop music
 
     "And then the music stopped."
 
     an "Hello, ladies and gentlefish! I hope everyone is having fun tonight!"
 
     "The crowd cheers."
-    
+
     an "We are thrilled to have The Hook this year thanks to our organizers, a-claws to them!"
 
     cr "Whoo!"
@@ -1330,7 +1396,12 @@ label end_choice_2:
 
     "‘Durururururuururururururururururu…’"
 
+    show Blobby
+    show clamantha
+
     an "Blobby and Clamantha! Congrats! Come on up"
+
+    play music prom
 
     "Spotlights from flashlights light the two of them."
 
@@ -1338,19 +1409,27 @@ label end_choice_2:
 
     m "Congrats you two! Now go up!"
 
+    hide Blobby
+
     cl "Oh, it would have been better if you were chosen instead of me."
 
     m "Oh, don’t. I’m happy for you. I don’t need anyone to make me happy. Now go, hurry. They’re calling for you."
 
     cl "Thank you."
 
-    "Up they go, they stand on the stage with everyone clapping their…fins and claws."
+    hide clamantha
+
+    "Up they go, they stand on the stage with everyone clapping their… fins and claws."
 
     an "Here you go, congrats on winning The Hook’s… coupon for dinner for two at The Boat!"
 
     "The announcer hands in paper to the couple."
 
+    show clamantha
+
     cl "Wait, what about the legend about blessing you a successful romance?"
+
+    hide clamantha
 
     an "Ahhh, due to the USO accident, The Hook is in a hospital so this the best we can provide as a replacement. I’m sure you’ll have a wonderful time at The Boat!"
 
@@ -1362,121 +1441,133 @@ label end_choice_2:
 
     "Everyone who is in pair starts to turn to each other and start slow dancing."
 
-    "(Hmm…I still haven't seen them.)"
+    "(Hmm… I still haven't seen them.)"
 
     "And then I go somewhere where there’s less crowd."
 
-    
-label ending_eval:
-    if isaacPoints == 2:
-        jump isaac_ending
-    if kolePoints == 2:
-        jump kole_ending
-    else
-        jump neutral_ending
-        #block of code to run
 
-#Ending Isaac Route:
+    label ending_eval:
+        if (isaacPoints > kolePoints):
+            jump isaac_ending
+        if (isaacPoints < kolePoints):
+            jump kole_ending
+        else:
+            jump neutral_ending
+
+    #Ending Isaac Route:
     label isaac_ending:
- 
+        scene bg prom
 
-    "A familiar silhouette approaches you."
+        "A familiar silhouette approaches you."
 
-    m "Thought you wouldn't come."
+        m "Thought you wouldn't come."
 
-    "I say while I turn around to see a shy amphibian next to me."
+        "I say while I turn around to see a shy amphibian next to me."
 
-    i "Thought I might take a look at my fish culture."
+        show isaac
 
-    i "You know? Talking to you made me realize that I may have gotten too distracted with the surface that I forgot I actually need to live a little bit more here, on the water."
+        i "Thought I might take a look at my fish culture."
 
-    m "Really? I thought I made you more curious about what's outside. Glad you are enjoying life here better."
+        i "You know? Talking to you made me realize that I may have gotten too distracted with the surface that I forgot I actually need to live a little bit more here, on the water."
 
-    i "Mc? I-I would like to ask you something."
+        m "Really? I thought I made you more curious about what's outside. Glad you are enjoying life here better."
 
-    m "Yeah, whatever you want Isaac."
+        i "Mc? I-I would like to ask you something."
 
-    i "I-If yOU w-wEre to HMmm err-"
+        m "Yeah, whatever you want Isaac."
 
-    m "Compose yourself."
+        i "I-If yOU w-wEre to HMmm err-"
 
-    i "IF YOU WERE TO STAY HERE FOREVER,,, WOULD IT BE OKAY FOR US TO UM TO ERRRR"
+        m "Compose yourself."
 
-    m "be friends? Sure thing!"
+        i "IF YOU WERE TO STAY HERE FOREVER,,, WOULD IT BE OKAY FOR US TO UM TO ERRRR"
 
-    i "yeah… Glad to hear that."
+        m "be friends? Sure thing!"
 
-    "We continue to watch Clamantha and Blobby be the center  of the party."
+        i "yeah… Glad to hear that."
 
-    "Suddenly, Isaac turns determined. "
+        hide isaac
 
-    i "ACTUALLY! I was talking more.. romantic thing to it….."
+        "We continue to watch Clamantha and Blobby be the center  of the party."
 
-    "(Oh…)"
+        "Suddenly, Isaac turns determined. "
 
-    "(OH!)"
+        show isaac
 
-    "I smile at him, he is really blushing. He can look cute sometimes."
+        i "ACTUALLY! I was talking more.. romantic thing to it….."
 
-    m "Sure~"
+        "(Oh…)"
 
-    "I grin, his cheeks look like a tomato. "
+        "(OH!)"
 
-    #---ending image of Isaac
+        "I smile at him, he is really blushing. He can look cute sometimes."
 
-    "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
+        m "Sure~"
 
-# Ending Kole Route:
+        "I grin, his cheeks look like a tomato. "
+
+        show CGisaac #---ending image of Isaac
+
+        "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
+
+        jump end
+
+    # Ending Kole Route:
     label kole_ending:
-  
 
-    "Kole is standing quite far away from the party, so you decide to go near him."
+        "Kole is standing quite far away from the party, so you decide to go near him."
 
-    m "Hey, what are you doing here?"
+        scene bg prom
 
-    k "Nothing really, just watching out that those bullies don't overstep again."
+        m "Hey, what are you doing here?"
 
-    "Don't you want to go dancing?"
+        show Kole
 
-    K "It isn't really my thing."
+        k "Nothing really, just watching out that those bullies don't overstep again."
 
-    "It isn't mine either, but we can give it a try. And make fun of eachother as we do."
+        m "Don't you want to go dancing?"
 
-    "Kole nods silently and you sort of notice a little smile that he tries to hide with his fin."
+        k "It isn't really my thing."
 
-    "I put my arm fins on Kole's shoulders."
+        m "It isn't mine either, but we can give it a try. And make fun of eachother as we do."
 
-    "(Was he always this strong?). "
+        "Kole nods silently and you sort of notice a little smile that he tries to hide with his fin."
 
-    "(How?)"
+        "I put my arm fins on Kole's shoulders."
 
-    K "Ouch. You sure are a horrible dancer, huh?"
-    
-    "(Uh Oh, I didn't think it was possible that I managed to step on his fin the pebbles underwater--hey!) "
+        "(Was he always this strong?). "
 
-    m "And you are a pretty good liar, you don't dance that bad."
+        "(How?)"
 
-    "Kole smirks."
+        k "Ouch. You sure are a horrible dancer, huh?"
 
-    k "I said dancing was not my thing, not that I danced poorly."
+        "(Uh Oh, I didn't think it was possible that I managed to step on his fin the pebbles underwater--hey!) "
 
-    m "Yeah yeah, liar."
+        m "And you are a pretty good liar, you don't dance that bad."
 
-    "You leaned into Kole's chest and slowered your peace."
+        "Kole smirks."
 
-    #Kole's ending image
+        k "I said dancing was not my thing, not that I danced poorly."
 
-    "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
+        m "Yeah yeah, liar."
 
-# Neutral Ending
-# (IsaacPoints == KolePoints OR both < 2 points)
-label neutral_ending:
+        "You leaned into Kole's chest and slowered your peace."
 
-    "Neutral end."
+        show CGkole #Kole's ending image
 
-#   ~~~~~~~END~~~~~~
+        "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
 
+        jump end
+    # Neutral Ending
+    # (IsaacPoints == KolePoints OR both < 2 points)
+    label neutral_ending:
 
+        "Neutral end."
+
+        jump end
+    #   ~~~~~~~END~~~~~~
+
+label end:
 
 #----game ends
 return
