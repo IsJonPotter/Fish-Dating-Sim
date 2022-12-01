@@ -25,8 +25,8 @@ image Kole:
 image Blobby:
     "Blobby_HAPPY.png"
 
-$ kolePoints = 0;
-$ isaacPoints = 0;
+#$ kolePoints = 0;
+#$ isaacPoints = 0;
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -48,7 +48,11 @@ define cr = Character("Crowd")
 
 # The game starts here.
 
+default kolePoints = 0
+default isaacPoints = 0
 label start:
+
+
 # Intro
     # Scene 1 - Confession
 
@@ -261,7 +265,7 @@ label start:
 
     cl "Go ahead to the classroom, I'll join you in a bit. I need to drop something off first."
 
-    mc "Oookay?"
+    m "Oookay?"
 
     "(I wonder what she is talking about.)"
 
@@ -620,10 +624,13 @@ label start:
 
     menu:
         "Stay in and avoid making eye contact longer":
+           
+            #$ isaacPoints = 0;
             $ isaacPoints += 1
             jump isaac_1
 
         "Help the whitefish":
+            #$ kolePoints = 0;
             $ kolePoints += 1
             jump kole_1
 
@@ -769,7 +776,7 @@ label start:
 
             i " OH MY GOD, YOU ARE A HUMAN! I MEAN YOU WERE A HUMAN. Of course, no one here has seen a human before but you somehow know!"
 
-            I "can see the axolotl’s starry eyes which made me think it’s very cute."
+            "I can see the axolotl’s starry eyes which made me think it’s very cute."
 
             m "Ha ha yeah, now you believe me?"
 
@@ -777,7 +784,7 @@ label start:
 
             m "And did you know axolotl DO NOT have eyelids?"
 
-            i "[{i}]Gasp{/i} I DIDN’T REALIZE MYSELF! Tell me, HUMAN! I must research you!"
+            i "{i}Gasp{/i} I DIDN’T REALIZE MYSELF! Tell me, HUMAN! I must research you!"
 
             m "Well…"
 
@@ -1331,7 +1338,7 @@ label end_choice_2:
 
     m "Congrats you two! Now go up!"
 
-    Clamantha "Oh, it would have been better if you were chosen instead of me."
+    cl "Oh, it would have been better if you were chosen instead of me."
 
     m "Oh, don’t. I’m happy for you. I don’t need anyone to make me happy. Now go, hurry. They’re calling for you."
 
@@ -1360,9 +1367,18 @@ label end_choice_2:
     "And then I go somewhere where there’s less crowd."
 
     
-#Ending Isaac Route:
+label ending_eval:
+    if isaacPoints == 2:
+        jump isaac_ending
+    if kolePoints == 2:
+        jump kole_ending
+    else
+        jump neutral_ending
+        #block of code to run
 
-    #If (IsaacPoints > KolePoints) {
+#Ending Isaac Route:
+    label isaac_ending:
+ 
 
     "A familiar silhouette approaches you."
 
@@ -1411,8 +1427,8 @@ label end_choice_2:
     "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
 
 # Ending Kole Route:
-
-    #if (KolePoints > IsaacPoints) {
+    label kole_ending:
+  
 
     "Kole is standing quite far away from the party, so you decide to go near him."
 
@@ -1454,6 +1470,9 @@ label end_choice_2:
 
 # Neutral Ending
 # (IsaacPoints == KolePoints OR both < 2 points)
+label neutral_ending:
+
+    "Neutral end."
 
 #   ~~~~~~~END~~~~~~
 
