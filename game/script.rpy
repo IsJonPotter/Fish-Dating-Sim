@@ -46,6 +46,7 @@ image Host:
 # name of the character.
 
 define c = Character("Crush")
+define mc = Character("MC")
 define m = Character("Shellby")
 define cl = Character("Clamantha")
 define di = Character("Dr Shrimp")
@@ -79,7 +80,7 @@ label start:
 
     "And that someone is me."
 
-    m "(She's really here.)"
+    mc "(She's really here.)"
 
     "'Bzzz bzzz'"
 
@@ -95,7 +96,7 @@ label start:
     "I have made sure I’ve showered and dressed neatly for this day! I hope I don’t smell like fish.
     Oh my god, I’m so nervous. No, I can’t sweat right now after the effort I put in. It’s time to go up to her."
 
-    m "{i}Gulp{/i}. H-hi!"
+    mc "{i}Gulp{/i}. H-hi!"
 
     "The girl turned around where the voice came from."
 
@@ -109,13 +110,13 @@ label start:
 
     "'Ba-dum ba-dum'"
 
-    m "(Calm down, heart)"
+    mc "(Calm down, heart)"
 
     "I told her how she has been on my mind since the first time I saw her. "
 
     "..."
 
-    m "(I did it!)"
+    mc "(I did it!)"
 
     "..."
 
@@ -123,13 +124,13 @@ label start:
 
     "All of a sudden my heart stops and I start to feel as if there's something in my throat."
 
-    m "B-but I showered before coming here!"
+    mc "B-but I showered before coming here!"
 
     c "Yeah, no, I'm sorry, I'm just not interested in you."
 
-    m "..."
+    mc "..."
 
-    m "(Ack! I felt as if something punched the soul out of my body and I'm left speechless from the shock.)"
+    mc "(Ack! I felt as if something punched the soul out of my body and I'm left speechless from the shock.)"
 
     #---add girl with uncomfortable face image
 
@@ -138,7 +139,7 @@ label start:
 
     "(...I gotta say something.)"
 
-    m "O-oh okay, y-yeah, it's no problem. Thanks for your time coming here..."
+    mc "O-oh okay, y-yeah, it's no problem. Thanks for your time coming here..."
 
     c "Yeah, thanks for telling me. But hey, no worries, I'm sure there are plenty of fish in the sea! Oh, no pun intended."
 
@@ -149,7 +150,7 @@ label start:
     "'BAM!'"
     scene bg white
     
-    m "(Huh?)"
+    mc "(Huh?)"
 
     scene bg lake
     show Crush:
@@ -212,9 +213,9 @@ label start:
 
     # Scene 2 - Truck-kun's Wrath
 
-    #play music main fadein 2.0 fadeout 2.0
+    play music main fadein 2.0 fadeout 2.0
 
-    m "(Hm? Where am I?)"
+    mc "(Hm? Where am I?)"
 
     scene bg infirmary
 
@@ -225,19 +226,19 @@ label start:
         yalign 0.5
         zoom 1.2
 
-    m "(A clam?)"
+    mc "(A clam?)"
 
     who "Omg, you woke up! Let me call the Doctor."
 
     who "Don't try to move too much! Let me call the Doctor."
 
-    m "(The Clam talks? Why does it have a bow?)"
+    mc "(The Clam talks? Why does it have a bow?)"
 
     "The clam goes to call the doctor."
 
     who "Here they are, Doctor Shrimp. They just woke up after being crushed by a U.S.O."
 
-    m "(U.S.O.?"
+    mc "(U.S.O.?"
     #clam and doctor shows up left and right on the screen
     show Clamantha:
         xalign 0.1
@@ -249,7 +250,7 @@ label start:
         xalign 0.75
         yalign 1.0
 
-    m "(And now a shrimp shows up?)"
+    mc "(And now a shrimp shows up?)"
 
     di "Thank you, Clamantha, for calling me right up."
     hide Clamantha
@@ -258,7 +259,7 @@ label start:
         xalign 0.5
     di "How are you feeling,Shellby? Do you have any headache? Physical pain?"
 
-    m "No… I don't feel anything weird."
+    mc "No… I don't feel anything weird."
     "(Shellby? That's me?)"
     m "(Which is in fact weirder, why am I in a fish body?)"
 
@@ -1300,6 +1301,8 @@ label end_choice_1:
                 xalign 0.5
                 yalign 0.8
 
+
+            play music sad fadein 2.0
             "Somehow that lowers Isaac’s mood."
 
             m "Yeah…"
@@ -1329,6 +1332,8 @@ label end_choice_1:
                 yalign 0.5
             "Isaac wipes my tears away."
 
+            play music isaac fadein 2.0
+
             i "There, there, no need to be sad for me. I am completely capable of returning home."
 
             m "I-I’m not crying. {i}sniff{/i} That kid is dumb for putting you in here. You’re so great and nice. {i}sniff{/i}"
@@ -1340,6 +1345,8 @@ label end_choice_1:
             "We became closer and I ended up joining his Surface research. "
 
             "Before I realized it’s already prom day."
+
+            stop music
 
             jump end_choice_2
 
