@@ -34,6 +34,11 @@ image CGisaac:
 image CGkole:
     "CG_KOLE.png"
 
+image Whitefish1:
+    "GenericFish.png"    
+
+image Host:
+    "Krilliam.png"
 #$ kolePoints = 0;
 #$ isaacPoints = 0;
 
@@ -60,8 +65,9 @@ define cr = Character("Crowd")
 default kolePoints = 0
 default isaacPoints = 0
 label start:
-    play music sad
 # Intro
+
+    stop music  fadeout 1.0
     # Scene 1 - Confession
     scene bg lake
 
@@ -140,20 +146,35 @@ label start:
 
     stop music
 
-    "'BAM!"
-
+    "'BAM!'"
+    scene bg white
+    
     m "(Huh?)"
 
-    "(I'm somehow flying up in the air away from her?)"
-    "Next thing I notice, she has her hands covering her mouth with her eyes wide open for some reason. I looked in another direction and finally realized I got hit by that truck. "
+    scene bg lake
+    show Crush:
+        xalign 0.2
+        yalign 0.5
+        zoom 0.5
 
+
+    "(I'm somehow flying up in the air away from her?)"
+
+    "Next thing I notice, she has her hands covering her mouth with her eyes wide open for some reason."
+    
+    show Truckkun:
+        xalign 0.5
+
+    "I looked in another direction and finally realized I got hit by that truck."
+
+    scene bg white
     "And then I plunge into the Lake Well."
 
     scene bg sea dark
 
     "(Oh no, I gotta get out of the water!)"
 
-    "…"
+    "..."
 
     "(My body can't move.)"
 
@@ -161,7 +182,9 @@ label start:
 
     scene bg sea
 
-    "…"
+    play music sad
+
+    "..."
 
     "(Huh, it's kind of pretty peaceful here...)"
 
@@ -178,20 +201,29 @@ label start:
 
     "(My mind is starting to fade and I let my eyes rest.)"
 
+    "..."
+
+
+    "..."
+
+
+    "..."
+
 
     # Scene 2 - Truck-kun's Wrath
 
-    play music main fadein 2.0 fadeout 2.0
+    #play music main fadein 2.0 fadeout 2.0
 
     m "(Hm? Where am I?)"
 
     scene bg infirmary
 
-    "You slowly start to open your eyes and find yourself at a kind of weird infirmary. There is a Clam next to you."
+    "I slowly open my eyes and find myself at a kind of weird infirmary it looks like. Am I still alive?"
 
     show Clamantha:
         xalign 0.5
         yalign 0.5
+        zoom 1.2
 
     m "(A clam?)"
 
@@ -199,27 +231,50 @@ label start:
 
     who "Don't try to move too much! Let me call the Doctor."
 
-    m "(The Clam talks? It has a bow?)"
+    m "(The Clam talks? Why does it have a bow?)"
 
     "The clam goes to call the doctor."
 
-    who "Here they are, Doctor Shrimp. They just woke up after being crushed by a USO (Unknown Surface Object)."
+    who "Here they are, Doctor Shrimp. They just woke up after being crushed by a U.S.O."
 
+    m "(U.S.O.?"
+    #clam and doctor shows up left and right on the screen
     show Clamantha:
-        xalign 0.25
+        xalign 0.1
+        yalign 0.5
+        zoom 0.8
 
     show Dr Shrump:
+        zoom 1.35
         xalign 0.75
+        yalign 1.0
 
     m "(And now a shrimp shows up?)"
 
-    di "Thank you, Clamantha, for calling me right up. How are you feeling? Do you have any headache? Physical pain?"
+    di "Thank you, Clamantha, for calling me right up."
+    hide Clamantha
+    show Dr Shrump:
+        zoom 1.40
+        xalign 0.5
+    di "How are you feeling? Do you have any headache? Physical pain?"
 
-    m "No… I don't feel anything weird (which is in fact weirder, why am I in a fish body?)"
+    m "No… I don't feel anything weird."
+    
+    m "(Which is in fact weirder, why am I in a fish body?)"
 
     "Dr.Shrimp checks my eyes and other places on my head."
+    #doc on the right
+    show Dr Shrump:
+        zoom 1.35
+        xalign 0.9
+        yalign 1.0
 
     di "You don't have anything life threathening but come visit me if you experience any sort of pain. You are free to go."
+    #clam on the left
+    show Clamantha:
+        xalign 0.1
+        yalign 0.5
+        zoom 0.8   
 
     cl "Oh, thank you so much Dr.Shrimp!"
 
@@ -231,15 +286,21 @@ label start:
 
     play music isaac fadein 2.0
 
+    hide Clamantha
+    hide Dr Shrump
+
     who  "I-I'M SO SORRwwYYYY!!!!!!!!!!!"
 
     who "I-I-I didn't know this would happen! If else I wouldn't have-"
 
     show Clamantha:
-        xalign 0.25
+        xalign 0.1
+        yalign 0.5
+        zoom 0.9
 
     show Isaac:
-        xalign 0.55
+        xalign 0.9
+        yalign 0.6
 
     cl  "Oh gosh, not this weirdo again..."
 
@@ -253,9 +314,9 @@ label start:
 
     "..."
 
-    m "Nah no way."
+    m "(Nah no way.)"
 
-    m "This little guy seems harmless."
+    m "(This little guy seems harmless.)"
 
     cl "Come on mc, don't listen to this nerdy-nonsense."
 
@@ -272,7 +333,12 @@ label start:
 
     scene bg hallway
     play music main
-    show Clamantha
+    show Clamantha:
+        yalign 0.5
+        xalign 0.5
+        zoom 1.0
+
+
 
     "Me and Clamantha got out of the infirmary."
 
@@ -293,6 +359,7 @@ label start:
     # Scene 4 - School yard - Kole
 
     scene schoolyard
+    "..."
 
     "This doesn’t look like it will lead to my classroom."
 
@@ -300,10 +367,8 @@ label start:
 
     m "Hmmm… yep. I’m lost. I have no idea where my classroom is. Time to turn back."
 
-    play music kole fadein 7.0
-
     "EEK!"
-
+    play music kole fadein 7.0
     "(What was that sound?)"
 
     "HELP!"
@@ -324,27 +389,38 @@ label start:
 
     "Because I can't stop I'm going crash into the fish with a black cardigan."
 
-    m "Watch out!"
+    m "Hey you! Watch out!"
 
     "‘THUD!’"
 
     m "Ow, my head..."
 
     "I hit head first at the other fish and I see it’s only us three."
-
+    show Whitefish:
+        xalign 1.0
+        yalign 0.5
+    show Kole:
+        zoom 1.20    
+        
     "The fish with a black cardigan with sleeves rolled up a bit is an orange goldfish and the one sitting on the ground is a whitefish who is covered in bruises."
 
     "I look back and forth between the two of them."
 
-    show Whitefish
 
-    wf "..."
 
-    show Kole
+    m "..."
+
+
+    who "..."
 
     who "Are you for real?"
 
     m "N-no, I'm so sorry! I'll get up now!"
+
+    show Kole:
+        zoom 1.0
+        xalign 0.25
+
 
     hide Whitefish
 
@@ -357,7 +433,15 @@ label start:
 
     who "I don't want a single word to go out of your mouth about this. If not, you’ll be introduced to my fists."
 
+    show Whitefish:
+        xalign 0.75
+        yalign 0.5
+        
     who "K-Kole."
+
+    show Kole:
+        zoom 1.0
+        xalign 0.30
 
     "Kole turns to the whitefish."
 
@@ -378,7 +462,9 @@ label start:
     "Kole rolls his eyes and turns back to the whitefish."
 
     "(Now is my chance to get away!)"
-
+    show Kole:
+        zoom 1.0
+        xalign 0.28
     k "If you’re still quiet and have nothing to do– huh? They ran off again."
 
 # Scene 5 -  Classroom
@@ -399,7 +485,11 @@ label start:
 
     "I turn and see the familiar clam silhouette."
 
-    show Clamantha
+    show Clamantha:
+        yalign 0.5
+        xalign 0.5
+        zoom 1.0
+    
 
     cl "Didn’t I tell you to go ahead without me? Why weren’t you here before me?"
 
@@ -418,6 +508,10 @@ label start:
 
     scene bg classroom
 
+    show Clamantha:
+        yalign 0.5
+        xalign 0.5
+
 
     cl "..."
 
@@ -427,7 +521,7 @@ label start:
 
     m "Ahaha, it sounded like I met one of them before."
 
-    play music kole
+   # play music kole
 
     cl "The goldfish you met is named Kole, he transferred here a while ago."
 
@@ -457,6 +551,7 @@ label start:
 
     cl "That's what I thought. You looked kinda confused when I mentioned the plan earlier."
 
+#--smiling Clam
     cl "Weeeellll, it’s about the blind dates I suggested that I will set up."
 
     m "For who?"
@@ -485,7 +580,9 @@ label start:
     play music main fadein 1.0
 
     scene bg classroom
-    show Clamantha
+    show Clamantha:
+        yalign 0.5
+        xalign 0.5
 
     "My eyes begin to become blurry from tearing up underwater somehow."
 
@@ -556,7 +653,9 @@ label start:
 
     "It wasn’t easy at first but I am getting used to this body and the diet as a fish."
 
+    scene bg black
 
+    "..."
 
 # Scene 6 - Blind dates - begin
 
@@ -564,11 +663,15 @@ label start:
 
     "It has been a week since I said yes to blind dates to Clamantha. "
 
-    show Clamantha
+    show Clamantha:
+        yalign 0.5
+        xalign 0.5
 
-    cl "Allright, MC! Back to work we go, becoming the hook ruler is not going to be made by its own. I set up 3 blind dates for you to try!"
+    cl "Allright, MC! Back to work we go, becoming the hook ruler is not going to be made by its own." 
+    
+    cl "I've set up 3 blind dates for you to try!"
 
-    "She said she came up with 3 blind dates and my first meet up will be in class 1A. "
+    "And my first meet up will be in class 1A. "
 
     hide Clamantha
 #-----------Blind date - Jawshua
@@ -582,11 +685,18 @@ label start:
 
     "(Wait, this is not just a big fish.)"
 
-    show Jawshua
+    show Jawshua:
+        yalign 0.45
+        
+
 
     bd "Yo."
 
     "(IT’S A SHARK???)"
+
+    show Jawshua:
+        yalign 0.45
+        xalign 0.5
 
     m "H-Hi-hi, you must be m-m-my b-blind d-date?"
 
@@ -613,7 +723,9 @@ label start:
     "Jawshua is in his final year and he’s on the school’s basketball team. He got recruited by someone in the league and will leave for them after the prom. "
 
     j "Just gonna cut to the chase. You look like you wanna find love without spending too much time and I think I’m perfect for you.
-    I expect that if we go together to The Hook, we will get married after we finish highschool, move to the ocean and after that have 5 kids. What do you say?"
+    I expect that if we go together to The Hook, we will get married after we finish highschool, move to the ocean and after that have 5 kids. "
+    
+    j "You agree?"
 
     m "....."
 
@@ -639,17 +751,19 @@ label start:
 
     "(Hmmm...now what. I’m free at the moment. What do people do after a blind date doesn’t work out?)"
 
-    play music kole fadein 2.0 fadeout 2.0
+   # play music kole fadein 2.0 fadeout 2.0
 
     show Kole at right
-    show Whitefish at left
+    show Whitefish1:
+        xzoom -1
+        xalign 0.7
+        yalign 0.5
 
     "I turned to look out the hallway window and saw two fish swimming by, one of them is the familiar goldfish again with the same whitefish that was with him last week."
-
     hide Kole
-    hide Whitefish
-
+    hide Whitefish1
     "I quickly look away fearing making eye contact with them."
+
 
     play music main
 
@@ -846,7 +960,10 @@ label start:
         "I still feel bad that I left that little guy behind for my selfish escape."
 
         show Kole at right
-        show whitefish at left
+        show Whitefish1:
+            xzoom -1
+            xalign 0.7
+            yalign 0.5
 
         "(Oh, I got an idea. I’ll get in between them and make a big commotion so that somebody can come and Kole can’t take him further away.)"
 
@@ -854,8 +971,16 @@ label start:
 
         "(With lots of anxiety and adrenaline running in me I got up and swam in between them."
 
-        "(Yes! They’re further apart now!)"
+        show Kole: 
+            xalign 0.6
 
+        show Whitefish1:
+            xzoom -1
+            xalign 0.2
+            yalign 0.5
+
+        "(Yes! They're further apart now!)"
+        
         k "Hey, what are you doing?"
 
         m "UMM ! I HAVE A QUESTION TO YOU, KOLE."
@@ -935,6 +1060,11 @@ label start:
 
     #------------choice 1/2 <Kolepoint +1> I apologize.
         label kole_1_sorry:
+            hide Whitefish1
+
+            show Kole:
+                xalign 0.4
+            
             m "...- -rry."
 
             k"Hm? What did you just say?"
@@ -951,14 +1081,23 @@ label start:
 
             k "W-wha- it was nothing."
 
+            show Kole:
+                xalign 0.6
+                yalign 0.5
+
             "(Oh, he looked away again...Is that a blush I see?)"
+
+            show Whitefish1:
+                xzoom -1
+                xalign 0.4
+                yalign 0.5
 
             k "If that’s all, then let’s go, you said you will get me a drink as a thank you."
 
             wf "Oh, uh yes! Bye, now."
 
             hide Kole
-            hide Whitefish
+            hide Whitefish1
 
             "And so the two fish left to the direction of the cafeteria to get drinks and I went ahead to see Clam to talk about how Jawshua is not it."
 
@@ -983,19 +1122,26 @@ label start:
 label end_choice_1:
 #---------Blind date - Blob
     play music main fadeout 1.0
-    scene cafeteria
+    scene bg black
+    "A few days later."
 
-    "It has been 3 days since my first blind date and Clam said she found a rare pearl for me."
+    "It has been probably 4-5 days since my first blind date and Clam said she found a rare pearl for me."
 
-    "I’m sitting in front of my second date in a similar classroom."
+    "He's indeed a 'rare pearl'..."
+
+    scene bg cafetaria
+    "I’m sitting in front of my second date in the cafeteria."
 
     "I think my date is called… Blobby?"
 
-    show Blobby
+    show Blobby:
+        xalign 0.5
+        yalign 0.5
+
 
     m "..."
-
-    m "What do you like to do for a hobby?"
+    "I seriously need a word with Clam."
+    m "...So what do you like to do for a hobby?"
 
     b "Blobbliolblobloblblubloblibloblblob"
 
@@ -1030,7 +1176,7 @@ label end_choice_1:
 
     m "Thank you for being so understanding. I’ll be going now. Bye!"
 
-    "I exited the the classroom feeling exhausted after paying really close attention to his non-verbal language."
+    "I exited the the classroom feeling exhausted aftertrying really hard to understand at least his non-verbal language."
 
     "Can everyone else hear what he says? Am I the only one who can’t hear him?"
 
@@ -1234,11 +1380,23 @@ label end_choice_1:
 
         m "Oh no, did that snail get injured? Is it ok?"
 
+        play music main fadein 2.5
+
+        "I got closer to have a closer look at the snail with its bandage."
+
         k "...too close.."
 
         m "Hm?"
 
-        "I looked up and didn’t notice until now that my face is really close next to his face when we’re looking at the snail together. Actually, up this close he’s actually a very pretty goldfish.
+        show Kole:
+            zoom 2.0
+            xalign 0.4
+            yalign 0.15
+
+
+        "I looked up and didn’t notice until now that my face is really close next to his face when we’re looking at the snail together."
+        
+        "Actually, up this close he’s actually a very pretty goldfish.
         His golden orange scales are so healthy and shiny looking."
 
         k" Your face is too close…"
@@ -1246,6 +1404,11 @@ label end_choice_1:
         "Kole looks a bit uncomfortable."
 
         m "Ah! My bad!"
+
+        show Kole:
+            zoom 1.0
+            xalign 0.4
+            yalign 0.5
 
         "We both look away in the opposite directions."
 
@@ -1330,7 +1493,7 @@ label end_choice_1:
 
             "Since this encounter we have gotten to know each other more and we would come behind the building to check on the snail together everyday. "
 
-            "Before I realized it’s already prom day."
+        
 
             jump end_choice_2
 
@@ -1341,31 +1504,44 @@ label end_choice_1:
 label end_choice_2:
     play music main fadein 1.0 fadeout 2.0
 
-    scene schoolyard
-    "It is prom day. "
+    scene bg hallway
+    "Before I realized it’s already prom day."
 
-    "I went on my third blind date but it wasn’t that memorable and we didn’t click with each other. It was some generic fish."
+    "I went on my third blind date before but it wasn’t that memorable and we didn’t click with each other. It was some generic fish."
 
-    show clamantha
+    show Clamantha:
+        xalign 0.5
+        yalign 0.5
+
     "Clamantha was sad that her date canceled on her but then found a new one already."
-    show Blobby
-    "To my surprise it was Blob! "
 
-    "Turns out Blobby agreed to the blind date to make Clamantha happy and then confessed his love for her after our date. Clamantha jumped in joy and will happily go to the prom with him. "
+    show Clamantha:
+        xalign 0.2
+        yalign 0.5
+    show Blobby:
+        xalign 0.8
+        yalign 0.5
 
-    "I can sort of understand what Blob is talking about thanks to Clamantha explaining to me that he just has a heavy accent from the deep water. It will take some time to get used to."
+    "To my surprise it was Blobby! "
 
-    "How did Blob survive in the freshwater? I don’t know. Blob is still full of mystery."
+    "Turns out Blobby agreed to the blind date to make Clamantha happy and then confessed his love for her after our date." 
+    
+    "Clamantha is overjoyed and will happily go to the prom with him. "
+
+    "I can sort of understand what Blobby is talking about thanks to Clamantha explaining to me that he just has a heavy accent from the deep water."
+    cl "It will take some time to get used to."
+
+    "That makes sense."
+    "How did Blobby survive in the freshwater? I don’t know. Blob is still full of mystery like all the other deepsea creatures."
 
     "The three of us went together to keep me company and decided we should enjoy our last day of school before we set out in the world."
+
+    cl "LET'S GOOOOO."
 
     play music prom fadein 2.0 fadeout 6.0
 
     scene bg prom
-
-    show clamantha
-    show Blobby
-
+   
     "We entered a extremely big and well decorated place."
 
     "(Whoa, I never thought fish could party like this. In the stage there’s a band of fish and other crustaceans playing what you can find in a lake. Like mussel shells as drums, used fishing lines connected to bottle caps, and other creative combinations thrown by the humans used as instruments.)"
@@ -1382,6 +1558,10 @@ label end_choice_2:
 
     "And then the music stopped."
 
+    show Host:
+        xalign 0.5 
+        yalign 0.5
+
     an "Hello, ladies and gentlefish! I hope everyone is having fun tonight!"
 
     "The crowd cheers."
@@ -1394,22 +1574,32 @@ label end_choice_2:
 
     an "This year The Hook’s chosen… “Best Shell and Fish” are!"
 
+    hide Host
+
     "‘Durururururuururururururururururu…’"
 
-    show Blobby
-    show clamantha
+    an "Blobby and Clamantha! Congrats! Come on up!"
 
-    an "Blobby and Clamantha! Congrats! Come on up"
+    show Clamantha:
+        xalign 0.2
+        yalign 0.5
+    show Blobby:
+        xalign 0.8
+        yalign 0.5
 
     play music prom
 
     "Spotlights from flashlights light the two of them."
 
-    "Clamantha starts to tear up and Blob hugs her."
+    "Clamantha starts to tear up and Blobby hugs her."
 
     m "Congrats you two! Now go up!"
 
     hide Blobby
+
+    show Clamantha:
+        xalign 0.5
+        yalign 0.5
 
     cl "Oh, it would have been better if you were chosen instead of me."
 
@@ -1417,19 +1607,26 @@ label end_choice_2:
 
     cl "Thank you."
 
-    hide clamantha
+    hide Clamantha
 
     "Up they go, they stand on the stage with everyone clapping their… fins and claws."
+
+    show Host:
+        xalign 0.09
+        yalign 0.5
 
     an "Here you go, congrats on winning The Hook’s… coupon for dinner for two at The Boat!"
 
     "The announcer hands in paper to the couple."
-
-    show clamantha
-
+    show Blobby:
+        zoom 0.6
+        xalign 0.99
+        yalign 0.5    
+    show Clamantha:
+        zoom 0.6
+        xalign 0.7
+        yalign 0.5
     cl "Wait, what about the legend about blessing you a successful romance?"
-
-    hide clamantha
 
     an "Ahhh, due to the USO accident, The Hook is in a hospital so this the best we can provide as a replacement. I’m sure you’ll have a wonderful time at The Boat!"
 
@@ -1444,6 +1641,12 @@ label end_choice_2:
     "(Hmm… I still haven't seen them.)"
 
     "And then I go somewhere where there’s less crowd."
+
+    hide Clamantha
+    hide Blobby
+    hide Host
+
+    "..."
 
 
     label ending_eval:
@@ -1514,26 +1717,48 @@ label end_choice_2:
 
     # Ending Kole Route:
     label kole_ending:
-
-        "Kole is standing quite far away from the party, so you decide to go near him."
-
         scene bg prom
+        "Kole is standing quite far away from the party where there isn't much fish around."
+        
+        "I went to him."
+        
 
         m "Hey, what are you doing here?"
 
         show Kole
 
-        k "Nothing really, just watching out that those bullies don't overstep again."
+        k "Nothing really, just watching out that those bullies don't overstep my friend again."
 
-        m "Don't you want to go dancing?"
+        m "Oh, so you admit that you DID help that whitefish out at that time."
 
+        k "...Shut up. I said they were just annoying."
+        "Kole looks away to hide his smile."
+
+        m "Aren't you going to go dancing?"
+        
         k "It isn't really my thing."
 
         m "It isn't mine either, but we can give it a try. And make fun of eachother as we do."
 
-        "Kole nods silently and you sort of notice a little smile that he tries to hide with his fin."
+        "Kole gave some thought while trying to hide his shyness behind his fin and then I noticed a little tap behind me."
 
-        "I put my arm fins on Kole's shoulders."
+        who "Excuse me, would you like to dance with me?"
+
+        m "Oh um..."
+
+        k "Sorry, this fish is already taken."
+
+        show Kole:
+            zoom 1.5
+            xalign 0.5
+            yalign 0.3
+
+
+        "Kole grabs my fin and put his back in front of the other fish ."
+
+        "The other fish left with disappointment to go ask another fish out."
+
+        "Kole wraps lightly around under my fins and I put my arm fins on Kole's shoulders."
 
         "(Was he always this strong?). "
 
@@ -1555,7 +1780,8 @@ label end_choice_2:
 
         show CGkole #Kole's ending image
 
-        "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
+        "Maybe I was a fool and there really are more fish in the sea. Well in the lake in this this case."
+        "It really took me a whole trip to the bottom of the lake to realize that."
 
         jump end
     # Neutral Ending
