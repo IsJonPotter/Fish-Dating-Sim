@@ -39,6 +39,10 @@ image Whitefish1:
 
 image Host:
     "Krilliam.png"
+
+image bubbles:
+    Fixed(SnowBlossom("bubble.png", 50, xspeed=(20, 50), yspeed=(-100, -200), start=50))
+
 #$ kolePoints = 0;
 #$ isaacPoints = 0;
 
@@ -173,6 +177,8 @@ label start:
 
     scene bg sea dark
 
+    show bubbles
+
     "(Oh no, I gotta get out of the water!)"
 
     "..."
@@ -183,6 +189,8 @@ label start:
 
     scene bg sea
 
+    show bubbles
+
     play music sad
 
     "..."
@@ -192,6 +200,8 @@ label start:
     "(I do recall that Lake Well can grant you a wish if you did something but I don't remember what.) "
 
     scene bg sea light
+
+    show bubbles
 
     "(My body is getting cold…I guess this is it.)"
 
@@ -218,6 +228,8 @@ label start:
     mc "(Hm? Where am I?)"
 
     scene bg infirmary
+
+    show bubbles
 
     "I slowly open my eyes and find myself at a kind of weird infirmary it looks like. Am I still alive?"
 
@@ -334,6 +346,7 @@ label start:
 
     scene bg hallway
     play music main
+    show bubbles
     show Clamantha:
         yalign 0.5
         xalign 0.5
@@ -360,6 +373,8 @@ label start:
     # Scene 4 - School yard - Kole
 
     scene schoolyard
+    show bubbles
+
     "..."
 
     "This doesn’t look like it will lead to my classroom."
@@ -471,6 +486,7 @@ label start:
 # Scene 5 -  Classroom
     play music main
     scene bg hallway
+    show bubbles
 
     "Pant, pant."
 
@@ -508,6 +524,7 @@ label start:
     "We go inside the classroom and I begin to tell her the tales of my adventure after we splitted up."
 
     scene bg classroom
+    show bubbles
 
     show Clamantha:
         yalign 0.5
@@ -581,6 +598,7 @@ label start:
     play music main fadein 1.0
 
     scene bg classroom
+    show bubbles
     show Clamantha:
         yalign 0.5
         xalign 0.5
@@ -643,7 +661,7 @@ label start:
 
     hide clamantha
     scene schoolyard
-
+    show bubbles
 
     "And so begins a new life in a fish body. "
 
@@ -661,6 +679,7 @@ label start:
 # Scene 6 - Blind dates - begin
 
     scene schoolyard
+    show bubbles
 
     "It has been a week since I said yes to blind dates to Clamantha. "
 
@@ -677,6 +696,7 @@ label start:
     hide Clamantha
 #-----------Blind date - Jawshua
     scene bg classroom
+    show bubbles
 
     "I entered this empty classroom that Clam noted for me."
 
@@ -1163,6 +1183,8 @@ label end_choice_1:
     "He's indeed a 'rare pearl'..."
 
     scene bg cafetaria
+    show bubbles
+
     "I’m sitting in front of my second date in the cafeteria."
 
     "I think my date is called… Blobby?"
@@ -1233,6 +1255,7 @@ label end_choice_1:
     label isaac_2:
 
         scene bg classroom
+        show bubbles
 
         "I decide to go to my classroom, on my way there I find a familiar face."
 
@@ -1371,6 +1394,7 @@ label end_choice_1:
     label kole_2:
 
         scene schoolyard
+        show bubbles
 
         "I chose to come to the schoolyard for fresh air… or fresher water in this case."
 
@@ -1561,6 +1585,8 @@ label end_choice_2:
     play music main fadein 1.0 fadeout 2.0
 
     scene bg hallway
+    show bubbles
+
     "Before I realized it’s already prom day."
 
     "I went on my third blind date before but it wasn’t that memorable and we didn’t click with each other. It was some generic fish."
@@ -1597,6 +1623,7 @@ label end_choice_2:
     play music prom fadein 2.0 fadeout 6.0
 
     scene bg prom
+    show bubbles
    
     "We entered a extremely big and well decorated place."
 
@@ -1714,6 +1741,7 @@ label end_choice_2:
     #Ending Isaac Route:
     label isaac_ending:
         scene bg prom
+        show bubbles
 
         "A familiar silhouette approaches you."
 
@@ -1745,7 +1773,7 @@ label end_choice_2:
 
         hide isaac
 
-        "We continue to watch Clamantha and Blobby be the center  of the party."
+        "We continue to watch Clamantha and Blobby be the center of the party."
 
         "Suddenly, Isaac turns determined. "
 
@@ -1774,6 +1802,8 @@ label end_choice_2:
     # Ending Kole Route:
     label kole_ending:
         scene bg prom
+        show bubbles
+        
         "Kole is standing quite far away from the party where there isn't much fish around."
         
         "I went to him."
