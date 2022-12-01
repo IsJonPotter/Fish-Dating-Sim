@@ -521,7 +521,7 @@ label start:
 
     m "Ahaha, it sounded like I met one of them before."
 
-   # play music kole
+    # play music kole
 
     cl "The goldfish you met is named Kole, he transferred here a while ago."
 
@@ -751,7 +751,7 @@ label start:
 
     "(Hmmm...now what. I’m free at the moment. What do people do after a blind date doesn’t work out?)"
 
-   # play music kole fadein 2.0 fadeout 2.0
+    # play music kole fadein 2.0 fadeout 2.0
 
     show Kole at right
     show Whitefish1:
@@ -775,14 +775,9 @@ label start:
 
     menu:
         "Stay in and avoid making eye contact longer":
-
-            #$ isaacPoints = 0;
-            $ isaacPoints = isaacPoints + 1
             jump isaac_1
 
         "Help the whitefish":
-            #$ kolePoints = 0;
-            $ kolePoints = kolePoints + 1
             jump kole_1
 
 
@@ -1648,14 +1643,12 @@ label end_choice_2:
 
     "..."
 
-
-    label ending_eval:
-        if (isaacPoints > kolePoints):
-            jump isaac_ending
-        if (isaacPoints < kolePoints):
-            jump kole_ending
-        else:
-            jump neutral_ending
+    if isaacPoints >= 2:
+        jump isaac_ending
+    elif kolePoints >= 2:
+        jump kole_ending
+    else:
+        jump neutral_ending
 
     #Ending Isaac Route:
     label isaac_ending:
@@ -1722,7 +1715,6 @@ label end_choice_2:
         
         "I went to him."
         
-
         m "Hey, what are you doing here?"
 
         show Kole
@@ -1732,6 +1724,7 @@ label end_choice_2:
         m "Oh, so you admit that you DID help that whitefish out at that time."
 
         k "...Shut up. I said they were just annoying."
+        
         "Kole looks away to hide his smile."
 
         m "Aren't you going to go dancing?"
