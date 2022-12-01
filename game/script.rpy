@@ -46,7 +46,7 @@ image Host:
 # name of the character.
 
 define c = Character("Crush")
-define m = Character("MC")
+define m = Character("Shellby")
 define cl = Character("Clamantha")
 define di = Character("Dr Shrimp")
 define d = Character("Dr Shrump")
@@ -256,10 +256,10 @@ label start:
     show Dr Shrump:
         zoom 1.40
         xalign 0.5
-    di "How are you feeling? Do you have any headache? Physical pain?"
+    di "How are you feeling,Shellby? Do you have any headache? Physical pain?"
 
     m "No… I don't feel anything weird."
-    
+    "(Shellby? That's me?)"
     m "(Which is in fact weirder, why am I in a fish body?)"
 
     "Dr.Shrimp checks my eyes and other places on my head."
@@ -318,7 +318,7 @@ label start:
 
     m "(This little guy seems harmless.)"
 
-    cl "Come on mc, don't listen to this nerdy-nonsense."
+    cl "Come on Shellby, don't listen to this nerdy-nonsense."
 
     who "W-wait but I really needed to explain this!"
 
@@ -342,7 +342,7 @@ label start:
 
     "Me and Clamantha got out of the infirmary."
 
-    cl "Listen up mc, I just need to make a lil more preparations, but the thing we talked about earlier still stands."
+    cl "Listen up Shellby, I just need to make a lil more preparations, but the thing we talked about earlier still stands."
 
     cl "Go ahead to the classroom, I'll join you in a bit. I need to drop something off first."
 
@@ -551,7 +551,7 @@ label start:
 
     cl "That's what I thought. You looked kinda confused when I mentioned the plan earlier."
 
-#--smiling Clam
+    #--smiling Clam
     cl "Weeeellll, it’s about the blind dates I suggested that I will set up."
 
     m "For who?"
@@ -667,7 +667,7 @@ label start:
         yalign 0.5
         xalign 0.5
 
-    cl "Allright, MC! Back to work we go, becoming the hook ruler is not going to be made by its own." 
+    cl "Allright, Shellby! Back to work we go, becoming the hook ruler is not going to be made by its own." 
     
     cl "I've set up 3 blind dates for you to try!"
 
@@ -770,8 +770,8 @@ label start:
     "(Aaahhhh, what do I do? Is he going to beat up that whitefish again?)"
 
 # Choices
-#   [+1 Isaac]  Stay in and avoid making eye contact longer. --> go Love Interest Isaac - scene 1
-#   [+1 Kole]    Help the whitefish.                         --> go to Love Interest Kole - scene 1
+#   [Isaac]  Stay in and avoid making eye contact longer. --> go Love Interest Isaac - scene 1
+#   [ Kole]    Help the whitefish.                         --> go to Love Interest Kole - scene 1
 
     menu:
         "Stay in and avoid making eye contact longer":
@@ -791,7 +791,9 @@ label start:
         play music isaac fadein 1.0
 
         show isaac:
-            zoom 1.5
+            zoom 2.5
+            xalign 0.6
+            yalign 0.2
 
         who "HEY!"
 
@@ -807,9 +809,20 @@ label start:
 
         who "Allright, sorry."
 
+        show isaac:
+            zoom 1.0
+            xalign 0.5
+            yalign 0.5
+
         "The guy takes a step backwards, a deep breath and makes an actual sentence."
 
-        who " Sorry, I can't recall introducing myself. The name's Isaac Newt-On, I am not really a resident of this lake, I come from a far more mysterious land. The SUR-FACE!"
+        who " Sorry, I can't recall introducing myself. The name's Isaac Newt-On, I am not really a resident of this lake, I come from a far more mysterious land."
+        show isaac:
+            zoom 1.5
+            xalign 0.5
+            yalign 0.2       
+            
+        i "The SUR-FACE!"
 
         "Isaac spread his arms up open to bedazzle the word 'SUR-FACE'."
 
@@ -820,7 +833,10 @@ label start:
         m "So what?"
 
         "The guy looks completely devastated."
-
+        show isaac:
+            zoom 1.0
+            xalign 0.5
+            yalign 0.5
         i "HOW DOESN'T IT SHOCK YOU?"
 
         m "I mean, why would it? I also come from the sur– (wait…)"
@@ -868,7 +884,7 @@ label start:
 
         # -----------choice 1/2 —<isaacpoint -1> (This is useless, I am just talking to a fever dream Axolotl.)
         label isaac_1_fever:
-
+            
             m "Oh I don’t know, pfft, we invented cars?"
 
             i "C-carS? What is that?"
@@ -918,9 +934,18 @@ label start:
 
             m "Did you know humans have eyelids?"
 
+            show isaac:
+                zoom 1.0
+                xalign 0.5
+                yalign 0.7
+
             i "........"
 
             m "........"
+            show isaac:
+                zoom 1.7
+                xalign 0.5
+                yalign 0.2
 
             i " OH MY GOD, YOU ARE A HUMAN! I MEAN YOU WERE A HUMAN. Of course, no one here has seen a human before but you somehow know!"
 
@@ -931,7 +956,7 @@ label start:
             "Isaac starts rambling on this profound secret."
 
             m "And did you know axolotl DO NOT have eyelids?"
-
+            "Isaac slowly brings his two hands to his cheeks."
             i "{i}Gasp{/i} I DIDN’T REALIZE MYSELF! Tell me, HUMAN! I must research you!"
 
             m "Well…"
@@ -1038,7 +1063,19 @@ label start:
 
         m "..."
 
-        k "What? If you got something then say it. I don’t like that stare."
+        k "By the way I haven't caught your name yet. I'm Kole."
+
+        m "Shellby."
+
+        "Kole starts to smirk."
+
+        k "Well congrats, Shellby. You made a big fool of yourself, hahaha."
+
+        "(Agghhh, you don't need to tell me twice. Unbelievable! He's such a jerk!"
+
+        "Kole notices my intense staring at him while I'm trying my best to keep my cool."
+
+        k "W-what? If you got something then say it. I don’t like that stare."
 
         "(All this time it was all a misunderstanding…He was actually a pretty nice fish… Oh no! It finally hit me, I really want to crawl in a cave!)"
 
@@ -1199,10 +1236,15 @@ label end_choice_1:
         "I decide to go to my classroom, on my way there I find a familiar face."
 
         play music isaac fadein 2.0
-        show isaac
+        
+        show Isaac:
+            xalign 0.5
+            yalign 0.8
 
         m "Oh! It's you."
-
+        show Isaac:
+            xalign 0.5
+            yalign 0.5
         i "It’s not 'you'. The name’s Isaac Newt-on. "
 
         m "It's quite weird to refer to yourself by your full name y'know?"
@@ -1211,7 +1253,7 @@ label end_choice_1:
 
         "(This guy doesn't look like it, but he is quite narcissistic about himself.)"
 
-        "I told him my name."
+        m "I'm Shellby."
 
         m "So, Isaac The Almighty Newt-On, why don't you take me to see the USO that crushed me and almost caused such a pretty fish like me to die?"
 
@@ -1247,13 +1289,16 @@ label end_choice_1:
 
             "(I hope it wasn’t too traumatizing for that girl when it happens, I hope things are ok up there.)"
 
-            i "What’s wrong? You look sad. *gasp* Do you know something about that hook?"
+            i "What’s wrong? You look sad. {i}gasp{/i} Do you know something about that hook?"
 
             m "Well it’s a bit of a long story…"
 
-            "I told Isaac what that hook was for and that USO was another type of human-made vehicle that hit me."
+            "I told Isaac what that hook was for and that U.S.O. was another type of human-made vehicle that hit me."
 
             i "...My, I’m glad the USO isn’t abandoned. It gets to return to the surface…"
+            show Isaac:
+                xalign 0.5
+                yalign 0.8
 
             "Somehow that lowers Isaac’s mood."
 
@@ -1262,25 +1307,34 @@ label end_choice_1:
             m "Hey, how did you become so obsessed with the humans and the Surface?"
 
             i "Oh!"
-
+            show Isaac:
+                xalign 0.5
+                yalign 0.5
             "He’s back all smiling again."
 
             i "You see, I was born from the Surface! I don’t exactly remember about my family members of my kind but I did have a human child who took care of me."
 
-            i "She was a very nice kid, who would always come and play with me behind an invisible wall. But one day, the human child decided to free me into this place. I didn’t need to be free, I was quite content there. Ever since then, I’ve been obsessed with trying to go back but nothing yet.  Hahaha."
+            i "She was a very nice kid, who would always come and play with me behind an invisible wall."
+            i "But one day, the human child decided to free me into this place. I didn’t need to be free, I was quite content there."
+            i "Ever since then, I’ve been obsessed with trying to go back but nothing yet.  Hahaha."
 
             "(...)"
+            "(Oh no, how could a child do that! That's so irresponsible.)"
+
 
             i "Oh no, I’m making you sad, you’re crying."
-
+            show Isaac:
+                zoom 1.5
+                xalign 0.5
+                yalign 0.5
             "Isaac wipes my tears away."
 
-            i "There There, no need to be sad for me. I am completely capable of returning home."
+            i "There, there, no need to be sad for me. I am completely capable of returning home."
 
-            m "I-I’m not crying. *sniff* That kid is dumb for putting you in here. You’re so great and nice. *sniff*"
+            m "I-I’m not crying. {i}sniff{/i} That kid is dumb for putting you in here. You’re so great and nice. {i}sniff{/i}"
 
             "Isaac's cheeks grows rosy red with a smile after the nice compliment I gave him."
-
+            i "That's nice of you for saying that. I should be the one comforting you after hearing a silly story of mine."
             "And we talk further more about the surface world, my life, his life and the humans who took care of him are like."
 
             "We became closer and I ended up joining his Surface research. "
@@ -1633,9 +1687,9 @@ label end_choice_2:
 
     "Everyone who is in pair starts to turn to each other and start slow dancing."
 
-    "(Hmm… I still haven't seen them.)"
+    "(Hmm… this side it getting too crowded,)"
 
-    "And then I go somewhere where there’s less crowd."
+    "And then I go where the snack table is."
 
     hide Clamantha
     hide Blobby
@@ -1668,7 +1722,7 @@ label end_choice_2:
 
         m "Really? I thought I made you more curious about what's outside. Glad you are enjoying life here better."
 
-        i "Mc? I-I would like to ask you something."
+        i "Shellby? I-I would like to ask you something."
 
         m "Yeah, whatever you want Isaac."
 
@@ -1704,8 +1758,10 @@ label end_choice_2:
 
         show CGisaac #---ending image of Isaac
 
-        "Maybe I was a fool and there really are more fish in the sea, it really took me a whole trip to the bottom of the lake to realize that."
+        "Maybe I was a fool and there really are more fish in the sea. Well in the lake in this this case."
+        "It really took me a whole trip to the bottom of the lake to realize that."
 
+        "The end"
         jump end
 
     # Ending Kole Route:
@@ -1776,12 +1832,37 @@ label end_choice_2:
         "Maybe I was a fool and there really are more fish in the sea. Well in the lake in this this case."
         "It really took me a whole trip to the bottom of the lake to realize that."
 
+        "The End."
+
         jump end
     # Neutral Ending
     # (IsaacPoints == KolePoints OR both < 2 points)
     label neutral_ending:
+        "..."
 
-        "Neutral end."
+        "At the corner of the party I stood next to bunch of other fish and talked how they find the party so far."
+
+        "But at the back of my head I kept thinking about that legend of The Hook."
+
+        "(Succes in romance,huh.)"
+
+        "(Bah, who cares about that. I should enjoy my new life as a fish here.)"
+
+        "I chug my drink fully. "
+
+        cl "SHELLBY!!"
+
+        show Clamantha:
+            xalign 0.5
+            yalign 0.5
+
+        cl "Come and dance with us! Don't just stand, silly."
+
+        "Clam pulled me in the dance floor."
+
+        "And it turns out it's actually really more enjoyable surround with friends."
+
+        "The end."
 
         jump end
     #   ~~~~~~~END~~~~~~
